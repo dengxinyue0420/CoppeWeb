@@ -6,6 +6,7 @@
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>AAD558F8-2D7D-4CF7-B1A1-69270782D250</string>
+	<string>A28A68D6-E376-4A06-8F52-CD33E7B1F5EB</string>
 	<key>IDESourceControlProjectName</key>
 	<string>CoppeWeb</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
@@ -35,6 +36,7 @@
 			<string>5F931D3A06ABCC1647FA58A2B53BA13016EFFB32</string>
 			<key>IDESourceControlWCCName</key>
 			<string>coppeweb</string>
+			<string>CoppeWeb</string>
 		</dict>
 	</array>
 </dict>
