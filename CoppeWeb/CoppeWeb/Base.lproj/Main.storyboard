@@ -22,48 +22,22 @@
                                     <rect key="frame" x="0.0" y="0.0" width="400" height="800"/>
                                 </variation>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="element201412221" translatesAutoresizingMaskIntoConstraints="NO" id="9eK-LR-hfX">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="element201412221" translatesAutoresizingMaskIntoConstraints="NO" id="6Q3-cV-Fl4">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <rect key="contentStretch" x="1" y="0.0" width="1" height="1"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="500" id="3AU-FV-zFo"/>
-                                    <constraint firstAttribute="width" constant="300" id="jJT-W7-yQP"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="3AU-FV-zFo"/>
-                                        <exclude reference="jJT-W7-yQP"/>
-                                    </mask>
-                                </variation>
-                                <variation key="heightClass=regular-widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="3AU-FV-zFo"/>
-                                        <include reference="jJT-W7-yQP"/>
-                                    </mask>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="50" y="150" width="300" height="500"/>
                                 </variation>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="centerX" secondItem="9eK-LR-hfX" secondAttribute="centerX" id="EQU-yH-ch6"/>
-                            <constraint firstAttribute="centerY" secondItem="9eK-LR-hfX" secondAttribute="centerY" id="Wh9-0b-H9q"/>
-                        </constraints>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="9eK-LR-hfX"/>
-                            </mask>
-                            <mask key="constraints">
-                                <exclude reference="EQU-yH-ch6"/>
-                                <exclude reference="Wh9-0b-H9q"/>
+                                <exclude reference="6Q3-cV-Fl4"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
-                                <include reference="9eK-LR-hfX"/>
-                            </mask>
-                            <mask key="constraints">
-                                <include reference="EQU-yH-ch6"/>
-                                <include reference="Wh9-0b-H9q"/>
+                                <include reference="6Q3-cV-Fl4"/>
                             </mask>
                         </variation>
                     </view>
