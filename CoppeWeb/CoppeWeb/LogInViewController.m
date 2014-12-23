@@ -7,21 +7,43 @@
 //
 
 #import "LogInViewController.h"
+#import "customTextField.h"
 
 @interface LogInViewController ()
+
 
 @end
 
 @implementation LogInViewController
 
+@synthesize emailField;
+@synthesize pwdField;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.pwdField.secureTextEntry = YES;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)signInPressed {
+    NSLog(@"sign in");
+    NSString *email = self.emailField.text;
+    NSString *pwd = self.pwdField.text;
+    NSLog(@"email:%@,pwd:%@",email,pwd);
+    //TO-DO: send email and pwd to server.
+}
+
+-(IBAction)forgetPwdPressed {
+    NSLog(@"forget pwd");
+}
+
+-(IBAction)signUpPressed{
+    NSLog(@"sign up");
 }
 
 /*
