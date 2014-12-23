@@ -11,14 +11,36 @@ server.on('connection',function(socket){
 	console.log('get connection.');
 	socket.on('data',function(data){
 		var Action = JSON.parse(data.toString());
+		//Sign up Action
 		if(Action['Target Action'] == 'Sign Up'){
 		    //set up Anth_Table here.
-		    var UserInfo = {
+		    var UserAnth = {
 			'TableName':'Anth_Table',
 			'Item':{
 			    'UserName':{'S':Action['UserName']},
 			    'PassWord':{'S':Action['PassWord']}
 			}
+		    };
+		    dynamodb.putItem(UserAnth,function(err,data){
+			    if(err) console.log(err, err.stack);
+			    else{
+				console.log('Update Successfully.');
+			    }
+			});
+		    //set up All_User_Table here.
+		    var UserInfo = {
+			'TableName':'All_User_Table',
+			'Item':{
+			    'UserName':{'S':Action['UserName']},
+			    'FirstName':{'S':Action['FirstName']},
+			    'Lastname':{'S':Action['LastName']},
+			    'DOB':{'S':Action['DOB']},
+			    'Gender':{'N':Action['Gender']},
+			    'YearOfClass':{'S':Action['Gender']},
+			    'University':{'S':Action['University']},
+			    'Major':{'S':Action['Major']}
+			}
+
 		    };
 		    dynamodb.putItem(UserInfo,function(err,data){
 			    if(err) console.log(err, err.stack);
@@ -26,10 +48,22 @@ server.on('connection',function(socket){
 				console.log('Update Successfully.');
 			    }
 			});
-		    //set up All_User_Table here.
-		    
 		}
+		//Log In Action
 		if(Action['Target Action'] == 'Log In'){
+		    var UserAnthItem = {
+			'TableName':'Anth_Table',
+			'Key':{
+			    'UserName':{'S':Action['UserName']}
+			}
+		    };
+		    dynamodb.getItem(UserAnthItem,function(err,data){
+			    if(err) console.log(err, err.stack);
+			    else {
+				console.log(data);
+			    }
+		    
+			});
 		    
 		}
 	    });
