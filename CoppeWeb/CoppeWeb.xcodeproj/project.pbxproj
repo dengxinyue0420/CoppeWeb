@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4ABB8F661A47E3B300CF816F /* LogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ABB8F651A47E3B300CF816F /* LogInViewController.m */; };
+		4ABB8F691A48034500CF816F /* customTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ABB8F681A48034500CF816F /* customTextField.m */; };
 		B44CADA41A47BB2900C73D0D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B44CADA31A47BB2900C73D0D /* main.m */; };
 		B44CADA71A47BB2900C73D0D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B44CADA61A47BB2900C73D0D /* AppDelegate.m */; };
 		B44CADAA1A47BB2900C73D0D /* CoppeWeb.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B44CADA81A47BB2900C73D0D /* CoppeWeb.xcdatamodeld */; };
@@ -33,6 +34,8 @@
 		27FB0FEE0DA3CC655F20DDE0 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		4ABB8F641A47E3B300CF816F /* LogInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogInViewController.h; sourceTree = "<group>"; };
 		4ABB8F651A47E3B300CF816F /* LogInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogInViewController.m; sourceTree = "<group>"; };
+		4ABB8F671A48034500CF816F /* customTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = customTextField.h; sourceTree = "<group>"; };
+		4ABB8F681A48034500CF816F /* customTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = customTextField.m; sourceTree = "<group>"; };
 		B44CAD9E1A47BB2900C73D0D /* CoppeWeb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoppeWeb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B44CADA21A47BB2900C73D0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B44CADA31A47BB2900C73D0D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -111,6 +114,8 @@
 				B44CADB11A47BB2900C73D0D /* Images.xcassets */,
 				B44CADB31A47BB2900C73D0D /* LaunchScreen.xib */,
 				B44CADA81A47BB2900C73D0D /* CoppeWeb.xcdatamodeld */,
+				4ABB8F671A48034500CF816F /* customTextField.h */,
+				4ABB8F681A48034500CF816F /* customTextField.m */,
 				4ABB8F641A47E3B300CF816F /* LogInViewController.h */,
 				4ABB8F651A47E3B300CF816F /* LogInViewController.m */,
 				B44CADA11A47BB2900C73D0D /* Supporting Files */,
@@ -284,6 +289,7 @@
 				4ABB8F661A47E3B300CF816F /* LogInViewController.m in Sources */,
 				B44CADAA1A47BB2900C73D0D /* CoppeWeb.xcdatamodeld in Sources */,
 				B44CADA71A47BB2900C73D0D /* AppDelegate.m in Sources */,
+				4ABB8F691A48034500CF816F /* customTextField.m in Sources */,
 				B44CADA41A47BB2900C73D0D /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
