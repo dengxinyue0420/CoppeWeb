@@ -9,8 +9,12 @@ var OnlineSocket = [];
 //set up sockets.
 server.on('connection',function(socket){
 	console.log('get connection.');
+	socket.on('end',function(){
+		console.log('lose one connection');
+	    });
 	socket.on('data',function(data){
 		var Action = JSON.parse(data.toString());
+		console.log(Action);
 		//Sign up Action
 		if(Action['Target Action'] == 'Sign Up'){
 		    //set up Anth_Table here.
@@ -60,7 +64,13 @@ server.on('connection',function(socket){
 		    dynamodb.getItem(UserAnthItem,function(err,data){
 			    if(err) console.log(err, err.stack);
 			    else {
-				console.log(data);
+				if(isEmpty(data)) console.log('false');
+				else {
+				    if(Action['PassWord']==data['Item']['PassWord']['S'])
+					console.log('true');
+				    else console.log('false');
+				}
+				
 			    }
 		    
 			});
@@ -73,3 +83,9 @@ server.on('connection',function(socket){
 
 server.listen(8124);
 console.log('Server Working.');
+
+//Other Functions
+
+function isEmpty(obj) {
+    return !Object.keys(obj).length;
+}
