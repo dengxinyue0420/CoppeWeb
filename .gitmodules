@@ -1,0 +1,3 @@
+[submodule "Demo/text"]
+	path = Demo/text
+	url = git://github.com/dengxinyue0420/CoppeWeb.git
