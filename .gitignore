@@ -1,2 +1,4 @@
 .DS_Store
 **/.DS_Store
+Server/node_modules
+Server/npm-debug.log
