@@ -21,19 +21,33 @@ server.on('connection',function(socket){
 		var Action = JSON.parse(data.toString());
 		console.log(Action);
 		//Sign up Action
-		if(Action['Target Action'] == 'Sign Up'){
-		    //set up Anth_Table here.
-		    var UserAnth = {
+		if(Action['Target Action'] == 'Sign Up'){ //Check if UserName already exist
+		    var UserAnthCheck = {
 			'TableName':'Anth_Table',
-			'Item':{
-			    'UserName':{'S':Action['UserName']},
-			    'PassWord':{'S':Action['PassWord']}
+			'Key':{
+			    'UserName':{'S':Action['UserName']}
 			}
 		    };
-		    dynamodb.putItem(UserAnth,function(err,data){
-			    if(err) console.log(err, err.stack);
+		    dynamodb.getItem(UserAnthCheck,function(err,data){
+			    if(err) console.log(err,err.stack);
 			    else{
-				console.log('Update Successfully.');
+				if(!isEmpty(data)) console.log('Already exist');
+				else{
+				    //set up Anth_Table here.
+				    var UserAnth = {
+					'TableName':'Anth_Table',
+					'Item':{
+					    'UserName':{'S':Action['UserName']},
+					    'PassWord':{'S':Action['PassWord']}
+					}
+				    };
+				    dynamodb.putItem(UserAnth,function(err,data){
+					    if(err) console.log(err, err.stack);
+					    else{
+						console.log('Update Successfully.');
+					    }
+					});
+				}
 			    }
 			});
 /*
