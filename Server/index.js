@@ -1,6 +1,8 @@
 //CoppeWeb Main Server
 //Created by Yicheng Wang on Whatever Date (Maybe 12/19/2014?)
 //Copyright (c) 2014 Yicheng Wang. All rights reserved.
+// ==========================================================
+
 
 
 //set up pkgs and pres.
@@ -31,8 +33,16 @@ server.on('connection',function(socket){
 		    dynamodb.getItem(UserAnthCheck,function(err,data){
 			    if(err) console.log(err,err.stack);
 			    else{
-				if(!isEmpty(data)) console.log('Already exist');
-				else{
+				if(!isEmpty(data)){ //Signup failed.
+				    var backjson = {
+					"BackMsg":"SignUpRes",
+					"Result":"false"
+				    };
+				    var backmsg = JSON.stringify(backjson);
+				    console.log('Already exist');
+				    socket.write(backmsg);
+				}
+				else{  //Signup successful.
 				    //set up Anth_Table here.
 				    var UserAnth = {
 					'TableName':'Anth_Table',
@@ -44,7 +54,13 @@ server.on('connection',function(socket){
 				    dynamodb.putItem(UserAnth,function(err,data){
 					    if(err) console.log(err, err.stack);
 					    else{
+						var backjson = {
+						    "BackMsg":"SignUpRes",
+						    "Result":"true"
+						};
+						var backmsg = JSON.stringify(backjson);
 						console.log('Update Successfully.');
+						socket.write(backmsg);
 					    }
 					});
 				}
@@ -84,18 +100,33 @@ server.on('connection',function(socket){
 		    dynamodb.getItem(UserAnthItem,function(err,data){
 			    if(err) console.log(err, err.stack);
 			    else {
-				if(isEmpty(data)){
+				if(isEmpty(data)){ //Login failed
+				    var backjson = {
+					"BackMsg":"LogInRes",
+					"Resule":"false"
+				    };
+				    var backmsg = JSON.stringify(backjson);
 				    console.log('false.');
-				    socket.write('false');
+				    socket.write(backmsg);
 				}
-				else {
-				    if(Action['PassWord']==data['Item']['PassWord']['S']){
+				else { 
+				    if(Action['PassWord']==data['Item']['PassWord']['S']){ //Login success.
+					var backjson = {
+					    "BackMsg":"LogInRes",
+					    "Result":"true"
+					};
+					var backmsg = JSON.stringify(backjson)
 					console.log('true');
-					socket.write('true');
+					socket.write(backmsg);
 				    }
-				    else{
+				    else{ //Login failed
+					var backjson = {
+					    "BackMsg":"LogInRes",
+					    "Resule":"false"
+					};
+					var backmsg = JSON.stringify(backjson);
 					console.log('false');
-					socket.write('false');
+					socket.write(backmsg);
 				    }
 				}
 				
@@ -111,9 +142,15 @@ server.on('connection',function(socket){
 
 server.listen(8124);
 console.log('Server Working.');
-
 //Other Functions
 
-function isEmpty(obj) {
+function isEmpty(obj) { //Check if Object is empty.
     return !Object.keys(obj).length;
+}
+
+function idgen (){ //Generate Unique IDs.
+    var FlakeIdGen = require('flake-idgen')
+        , intformat = require('biguint-format')
+        , generator = new FlakeIdGen;
+    return intformat( generator.next(),'dec');
 }
