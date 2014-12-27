@@ -1,3 +1,8 @@
+//CoppeWeb Main Server
+//Created by Yicheng Wang on Whatever Date (Maybe 12/19/2014?)
+//Copyright (c) 2014 Yicheng Wang. All rights reserved.
+
+
 //set up pkgs and pres.
 var AWS = require('aws-sdk');
 AWS.config.update({region:'us-east-1'});
@@ -31,6 +36,7 @@ server.on('connection',function(socket){
 				console.log('Update Successfully.');
 			    }
 			});
+/*
 		    //set up All_User_Table here.
 		    var UserInfo = {
 			'TableName':'All_User_Table',
@@ -51,8 +57,8 @@ server.on('connection',function(socket){
 			    else{
 				console.log('Update Successfully.');
 			    }
-			});
-		}
+			});  */
+			}
 		//Log In Action
 		if(Action['Target Action'] == 'Log In'){
 		    var UserAnthItem = {
@@ -64,11 +70,19 @@ server.on('connection',function(socket){
 		    dynamodb.getItem(UserAnthItem,function(err,data){
 			    if(err) console.log(err, err.stack);
 			    else {
-				if(isEmpty(data)) console.log('false');
+				if(isEmpty(data)){
+				    console.log('false.');
+				    socket.write('false');
+				}
 				else {
-				    if(Action['PassWord']==data['Item']['PassWord']['S'])
+				    if(Action['PassWord']==data['Item']['PassWord']['S']){
 					console.log('true');
-				    else console.log('false');
+					socket.write('true');
+				    }
+				    else{
+					console.log('false');
+					socket.write('false');
+				    }
 				}
 				
 			    }
