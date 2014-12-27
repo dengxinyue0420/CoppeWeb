@@ -12,8 +12,8 @@
 @interface LogInViewController : UIViewController <NSStreamDelegate>
 @property (weak, nonatomic) IBOutlet customTextField *emailField;
 @property (weak, nonatomic) IBOutlet customTextField *pwdField;
-@property NSInputStream *inputstream;
-@property NSOutputStream *outputstream;
+//@property NSInputStream *inputstream;
+//@property NSOutputStream *outputstream;
 
     -(IBAction)signInPressed;
     -(IBAction)forgetPwdPressed;

@@ -7,6 +7,7 @@
 //
 
 #import "SignUpViewController.h"
+#import "AppDelegate.h"
 
 @interface SignUpViewController ()
 
@@ -14,8 +15,14 @@
 
 @implementation SignUpViewController
 
+@synthesize emailField;
+@synthesize pwdField;
+@synthesize confirmPwdField;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.pwdField.secureTextEntry = YES;
+    self.confirmPwdField.secureTextEntry = YES;
     // Do any additional setup after loading the view.
 }
 
@@ -24,6 +31,30 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)signUp {
+    NSString *email = emailField.text;
+    NSString *pwd = pwdField.text;
+    NSString *confirmPwd = confirmPwdField.text;
+    
+    if([self checkPwd:pwd confirm:confirmPwd]){
+        NSString *msg = [NSString stringWithFormat:@"{\"Target Action\":\"Sign Up\",\"UserName\":\"%@\",\"PassWord\":\"%@\"}",email,pwd];
+        NSData *data = [[NSData alloc]initWithData:[msg dataUsingEncoding:NSASCIIStringEncoding]];
+        [outputstream write:[data bytes] maxLength:[data length]];
+        self.emailField.text = @"";
+        self.pwdField.text = @"";
+        self.confirmPwdField.text = @"";
+    }else{
+        NSLog(@"password doesn't match");
+    }
+}
+
+- (BOOL) checkPwd:(NSString*) pwd confirm:(NSString*) confirmPwd {
+    if ([pwd isEqualToString:confirmPwd]){
+        return YES;
+    }else{
+        return NO;
+    }
+}
 /*
 #pragma mark - Navigation
 

@@ -9,7 +9,12 @@
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+
+
+extern NSInputStream *inputstream;
+extern NSOutputStream *outputstream;
+
+@interface AppDelegate : UIResponder <UIApplicationDelegate,NSStreamDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
@@ -20,6 +25,6 @@
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 
-
 @end
+
 

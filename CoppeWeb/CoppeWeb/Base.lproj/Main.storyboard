@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="element201412228" translatesAutoresizingMaskIntoConstraints="NO" id="b57-6k-M5t">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="element201412228" translatesAutoresizingMaskIntoConstraints="NO" id="b57-6k-M5t">
                                 <rect key="frame" x="0.0" y="0.0" width="661" height="628"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="400" id="d7j-5Q-koe"/>
@@ -188,6 +188,7 @@
                                 </variation>
                                 <connections>
                                     <action selector="signUpPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="XD5-1I-erb"/>
+                                    <segue destination="YVa-lv-hP4" kind="show" id="NXQ-pI-jua"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nqN-K9-A2b" customClass="customTextField">
@@ -224,11 +225,11 @@
                             <constraint firstAttribute="centerX" secondItem="UY9-jF-m9X" secondAttribute="centerX" id="AMt-dv-1SK"/>
                             <constraint firstItem="W3j-et-HLw" firstAttribute="top" secondItem="SEv-zL-Mba" secondAttribute="bottom" constant="30" id="Hmk-kC-WsK"/>
                             <constraint firstAttribute="centerX" secondItem="SEv-zL-Mba" secondAttribute="centerX" id="Iz9-Or-sIf"/>
+                            <constraint firstAttribute="centerY" secondItem="b57-6k-M5t" secondAttribute="centerY" id="O53-VM-nTH"/>
                             <constraint firstAttribute="centerX" secondItem="nqN-K9-A2b" secondAttribute="centerX" id="QfB-4b-Yrm"/>
                             <constraint firstAttribute="centerY" secondItem="6Q3-cV-Fl4" secondAttribute="centerY" id="RJW-ex-hnP"/>
                             <constraint firstItem="6n3-so-luz" firstAttribute="top" secondItem="nqN-K9-A2b" secondAttribute="bottom" constant="15" id="Roa-qF-KAc"/>
                             <constraint firstAttribute="centerX" secondItem="6Q3-cV-Fl4" secondAttribute="centerX" id="S2g-i3-gh9"/>
-                            <constraint firstAttribute="centerY" secondItem="b57-6k-M5t" secondAttribute="centerY" id="UOf-XN-if1"/>
                             <constraint firstItem="nqN-K9-A2b" firstAttribute="top" secondItem="W3j-et-HLw" secondAttribute="bottom" constant="1" id="V6T-rl-Zos"/>
                             <constraint firstAttribute="centerX" secondItem="6n3-so-luz" secondAttribute="centerX" id="psP-zk-lCE"/>
                             <constraint firstAttribute="centerX" secondItem="Ybm-c2-niT" secondAttribute="centerX" id="qaM-RW-gVu"/>
@@ -263,7 +264,6 @@
                                 <exclude reference="4FV-ad-dj0"/>
                                 <exclude reference="qaM-RW-gVu"/>
                                 <exclude reference="0U4-Zi-fdm"/>
-                                <exclude reference="UOf-XN-if1"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -295,7 +295,6 @@
                                 <include reference="4FV-ad-dj0"/>
                                 <include reference="qaM-RW-gVu"/>
                                 <include reference="0U4-Zi-fdm"/>
-                                <include reference="UOf-XN-if1"/>
                             </mask>
                         </variation>
                     </view>
@@ -306,6 +305,107 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+        </scene>
+        <!--Sign Up View Controller-->
+        <scene sceneID="q19-cc-kWX">
+            <objects>
+                <viewController id="YVa-lv-hP4" customClass="SignUpViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="N5E-Mz-Aqi"/>
+                        <viewControllerLayoutGuide type="bottom" id="s47-wr-kqC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9pB-bS-KtH">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="36o-R1-Nmo" customClass="customTextField">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="102" y="78" width="196" height="30"/>
+                                </variation>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zFw-tr-d6Z" customClass="customTextField">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="102" y="116" width="196" height="30"/>
+                                </variation>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kL1-vC-IDA">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Sign Up">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="153" y="192" width="94" height="30"/>
+                                </variation>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mbh-b2-KUC" customClass="customTextField">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="102" y="154" width="196" height="30"/>
+                                </variation>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kk1-Eg-rzR">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Sign Up">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="153" y="192" width="94" height="30"/>
+                                </variation>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="peZ-GM-Yrf">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Sign Up">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="153" y="192" width="94" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="signUp" destination="YVa-lv-hP4" eventType="touchUpInside" id="0g5-ua-HBK"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="36o-R1-Nmo"/>
+                                <exclude reference="zFw-tr-d6Z"/>
+                                <exclude reference="kL1-vC-IDA"/>
+                                <exclude reference="mbh-b2-KUC"/>
+                                <exclude reference="Kk1-Eg-rzR"/>
+                                <exclude reference="peZ-GM-Yrf"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="36o-R1-Nmo"/>
+                                <include reference="zFw-tr-d6Z"/>
+                                <include reference="kL1-vC-IDA"/>
+                                <include reference="mbh-b2-KUC"/>
+                                <include reference="Kk1-Eg-rzR"/>
+                                <include reference="peZ-GM-Yrf"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="confirmPwdField" destination="mbh-b2-KUC" id="zxb-Iy-tSO"/>
+                        <outlet property="emailField" destination="36o-R1-Nmo" id="iIU-4Y-bLt"/>
+                        <outlet property="pwdField" destination="zFw-tr-d6Z" id="yuD-yH-ori"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5cO-aA-saV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1309.5" y="260.25"/>
         </scene>
     </scenes>
     <resources>

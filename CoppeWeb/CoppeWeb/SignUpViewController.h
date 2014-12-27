@@ -7,7 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "customTextField.h"
 
 @interface SignUpViewController : UIViewController
+@property (weak, nonatomic) IBOutlet customTextField *emailField;
+@property (weak, nonatomic) IBOutlet customTextField *pwdField;
+
+@property (weak, nonatomic) IBOutlet customTextField *confirmPwdField;
+
+-(IBAction)signUp;
+-(BOOL) checkPwd:(NSString*) pwd confirm:(NSString*) confirmPwd;
 
 @end
