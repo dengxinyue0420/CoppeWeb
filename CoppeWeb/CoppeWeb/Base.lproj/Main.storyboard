@@ -333,16 +333,6 @@
                                     <rect key="frame" x="102" y="116" width="196" height="30"/>
                                 </variation>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kL1-vC-IDA">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="Sign Up">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="153" y="192" width="94" height="30"/>
-                                </variation>
-                            </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mbh-b2-KUC" customClass="customTextField">
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -351,16 +341,6 @@
                                     <rect key="frame" x="102" y="154" width="196" height="30"/>
                                 </variation>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kk1-Eg-rzR">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="Sign Up">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="153" y="192" width="94" height="30"/>
-                                </variation>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="peZ-GM-Yrf">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -368,36 +348,44 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="153" y="192" width="94" height="30"/>
+                                    <rect key="frame" x="153" y="238" width="94" height="30"/>
                                 </variation>
                                 <connections>
                                     <action selector="signUp" destination="YVa-lv-hP4" eventType="touchUpInside" id="0g5-ua-HBK"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ggS-5K-F60">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.19680921530000001" blue="0.15072634130000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="102" y="197" width="196" height="25"/>
+                                </variation>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="36o-R1-Nmo"/>
                                 <exclude reference="zFw-tr-d6Z"/>
-                                <exclude reference="kL1-vC-IDA"/>
                                 <exclude reference="mbh-b2-KUC"/>
-                                <exclude reference="Kk1-Eg-rzR"/>
                                 <exclude reference="peZ-GM-Yrf"/>
+                                <exclude reference="ggS-5K-F60"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
                                 <include reference="36o-R1-Nmo"/>
                                 <include reference="zFw-tr-d6Z"/>
-                                <include reference="kL1-vC-IDA"/>
                                 <include reference="mbh-b2-KUC"/>
-                                <include reference="Kk1-Eg-rzR"/>
                                 <include reference="peZ-GM-Yrf"/>
+                                <include reference="ggS-5K-F60"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="alert" destination="ggS-5K-F60" id="gq7-70-DTo"/>
                         <outlet property="confirmPwdField" destination="mbh-b2-KUC" id="zxb-Iy-tSO"/>
                         <outlet property="emailField" destination="36o-R1-Nmo" id="iIU-4Y-bLt"/>
                         <outlet property="pwdField" destination="zFw-tr-d6Z" id="yuD-yH-ori"/>

@@ -14,6 +14,8 @@
 @property (weak, nonatomic) IBOutlet customTextField *pwdField;
 
 @property (weak, nonatomic) IBOutlet customTextField *confirmPwdField;
+@property (weak, nonatomic) IBOutlet UILabel *alert;
+
 
 -(IBAction)signUp;
 -(BOOL) checkPwd:(NSString*) pwd confirm:(NSString*) confirmPwd;

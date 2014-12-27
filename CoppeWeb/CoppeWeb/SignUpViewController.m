@@ -18,6 +18,7 @@
 @synthesize emailField;
 @synthesize pwdField;
 @synthesize confirmPwdField;
+@synthesize alert;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -44,7 +45,7 @@
         self.pwdField.text = @"";
         self.confirmPwdField.text = @"";
     }else{
-        NSLog(@"password doesn't match");
+        alert.text = @"password doesn't match";
     }
 }
 
