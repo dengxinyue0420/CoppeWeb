@@ -18,9 +18,12 @@
 
 @synthesize emailField;
 @synthesize pwdField;
+@synthesize inputstream;
+@synthesize outputstream;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self initNetworkConnection];
     // Do any additional setup after loading the view.
     self.pwdField.secureTextEntry = YES;
 }
@@ -34,8 +37,11 @@
     NSLog(@"sign in");
     NSString *email = self.emailField.text;
     NSString *pwd = self.pwdField.text;
-    NSLog(@"email:%@,pwd:%@",email,pwd);
-    //TO-DO: send email and pwd to server.
+    NSString *msg = [NSString stringWithFormat:@"{\"Target Action\":\"Log In\",\"UserName\":\"%@\",\"PassWord\":\"%@\"}",email,pwd];
+    NSData *data = [[NSData alloc]initWithData:[msg dataUsingEncoding:NSASCIIStringEncoding]];
+    [outputstream write:[data bytes] maxLength:[data length]];
+    self.emailField.text = @"";
+    self.pwdField.text = @"";
 }
 
 -(IBAction)forgetPwdPressed {
@@ -45,7 +51,19 @@
 -(IBAction)signUpPressed{
     NSLog(@"sign up");
 }
-
+-(void)initNetworkConnection{
+    CFReadStreamRef readStream;
+    CFWriteStreamRef writeStream;
+    CFStreamCreatePairWithSocketToHost(NULL, (CFStringRef)@"localhost", 8124, &readStream, &writeStream);
+    inputstream = (__bridge NSInputStream *)readStream;
+    outputstream = (__bridge NSOutputStream *)writeStream;
+    [inputstream setDelegate:self];
+    [outputstream setDelegate:self];
+    [inputstream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+    [outputstream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+    [inputstream open];
+    [outputstream open];
+}
 /*
 #pragma mark - Navigation
 
