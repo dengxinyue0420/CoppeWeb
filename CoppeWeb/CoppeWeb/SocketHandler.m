@@ -34,36 +34,43 @@ NSOutputStream *outputstream;
     switch (eventCode) {
         case NSStreamEventHasBytesAvailable:
             if(aStream==inputstream){
-                uint8_t buffer[1024];
-                int len;
-                while ([inputstream hasBytesAvailable]){
-                    len = [inputstream read:buffer maxLength:sizeof(buffer)];
-                    if (len>0){
-                        NSString *output = [[NSString alloc] initWithBytes:buffer length:len encoding:NSASCIIStringEncoding];
-                        NSData *data = [output dataUsingEncoding:NSASCIIStringEncoding];
-                        id jsonBack = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-                        NSString *backMsg = [jsonBack objectForKey:@"BackMsg"];
-                        NSString *result = [jsonBack objectForKey:@"Result"];
-                        if([backMsg isEqualToString:@"SignUpRes"]){
-                            if ([result isEqualToString:@"true"]) {
-                                NSLog(@"please work");
-                                [[NSNotificationCenter defaultCenter] postNotificationName:@"signUp_success" object:self];
-                            }else{
-                                [[NSNotificationCenter defaultCenter] postNotificationName:@"signUp_existed" object:self];
-                            }
-                        }else if ([backMsg isEqualToString:@"LogInRes"]){
-                            if ([result isEqualToString:@"true"]){
-                                [[NSNotificationCenter defaultCenter] postNotificationName:@"login_success" object:self];
-                            }else{
-                                [[NSNotificationCenter defaultCenter] postNotificationName:@"login_fail" object:self];
+                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                    uint8_t buffer[1024];
+                    int len;
+                    while ([inputstream hasBytesAvailable]){
+                        len = [inputstream read:buffer maxLength:sizeof(buffer)];
+                        if (len>0){
+                            NSString *output = [[NSString alloc] initWithBytes:buffer length:len encoding:NSASCIIStringEncoding];
+                            NSData *data = [output dataUsingEncoding:NSASCIIStringEncoding];
+                            id jsonBack = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+                            NSString *backMsg = [jsonBack objectForKey:@"BackMsg"];
+                            NSString *result = [jsonBack objectForKey:@"Result"];
+                            if([backMsg isEqualToString:@"SignUpRes"]){
+                                if ([result isEqualToString:@"true"]) {
+                                    [self postNotification:@"signUp_success"];
+                                }else{
+                                    [self postNotification:@"signUp_existed"];
+                                }
+                            }else if ([backMsg isEqualToString:@"LogInRes"]){
+                                if ([result isEqualToString:@"true"]){
+                                    [self postNotification:@"login_success"];
+                                }else{
+                                    [self postNotification:@"login_fail"];
+                                }
                             }
                         }
                     }
-                }
+                });
             }
             break;
         default:
             break;
     }
+}
+
+-(void) postNotification:(NSString*) notification{
+    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+        [[NSNotificationCenter defaultCenter] postNotificationName:notification object:self];
+    }];
 }
 @end

@@ -88,6 +88,26 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		4A3182741A503983007B57D3 /* LogIn_signUp */ = {
+			isa = PBXGroup;
+			children = (
+				4ABB8F641A47E3B300CF816F /* LogInViewController.h */,
+				4ABB8F651A47E3B300CF816F /* LogInViewController.m */,
+				4A7C1A3C1A4E5120006551AB /* SignUpViewController.h */,
+				4A7C1A3D1A4E5120006551AB /* SignUpViewController.m */,
+			);
+			name = LogIn_signUp;
+			sourceTree = "<group>";
+		};
+		4A3182751A5039C6007B57D3 /* Post */ = {
+			isa = PBXGroup;
+			children = (
+				4A31826A1A4FB56B007B57D3 /* PostTableViewController.h */,
+				4A31826B1A4FB56B007B57D3 /* PostTableViewController.m */,
+			);
+			name = Post;
+			sourceTree = "<group>";
+		};
 		5B7BFD2620A6D95C4F31C260 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -119,21 +139,17 @@
 		B44CADA01A47BB2900C73D0D /* CoppeWeb */ = {
 			isa = PBXGroup;
 			children = (
+				4A3182751A5039C6007B57D3 /* Post */,
+				4A3182741A503983007B57D3 /* LogIn_signUp */,
 				B44CADAE1A47BB2900C73D0D /* Main.storyboard */,
-				4A7C1A3C1A4E5120006551AB /* SignUpViewController.h */,
-				4A7C1A3D1A4E5120006551AB /* SignUpViewController.m */,
 				B44CADB11A47BB2900C73D0D /* Images.xcassets */,
 				B44CADB31A47BB2900C73D0D /* LaunchScreen.xib */,
 				B44CADA81A47BB2900C73D0D /* CoppeWeb.xcdatamodeld */,
 				4ABB8F671A48034500CF816F /* customTextField.h */,
 				4ABB8F681A48034500CF816F /* customTextField.m */,
-				4ABB8F641A47E3B300CF816F /* LogInViewController.h */,
-				4ABB8F651A47E3B300CF816F /* LogInViewController.m */,
 				4ADF386C1A4F08190012B423 /* SocketHandler.h */,
 				4ADF386D1A4F08190012B423 /* SocketHandler.m */,
 				B44CADA11A47BB2900C73D0D /* Supporting Files */,
-				4A31826A1A4FB56B007B57D3 /* PostTableViewController.h */,
-				4A31826B1A4FB56B007B57D3 /* PostTableViewController.m */,
 			);
 			path = CoppeWeb;
 			sourceTree = "<group>";

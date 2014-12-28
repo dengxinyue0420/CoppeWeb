@@ -15,5 +15,5 @@ extern NSOutputStream *outputstream;
 @interface SocketHandler : NSObject <NSStreamDelegate>
 
 -(void) initNetworkConnection;
-
+-(void) postNotification:(NSString*) notification;
 @end

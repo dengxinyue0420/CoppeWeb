@@ -58,8 +58,8 @@
 }
 -(void) receivedNotification:(NSNotification*) notification{
     if([[notification name]isEqualToString:@"login_success"]){
-        PostTableViewController *pvc = [self.storyboard instantiateViewControllerWithIdentifier:@"post"];
-        [self presentViewController:pvc animated:YES completion:nil];
+        NSLog(@"received");
+        [self performSegueWithIdentifier:@"showPost" sender:self];
         
     }else if([[notification name]isEqualToString:@"login_fail"]){
         self.emailField.text = @"";
