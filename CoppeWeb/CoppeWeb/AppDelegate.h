@@ -8,11 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
+#import "SocketHandler.h"
 
-
-
-extern NSInputStream *inputstream;
-extern NSOutputStream *outputstream;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate,NSStreamDelegate>
 
@@ -21,6 +18,8 @@ extern NSOutputStream *outputstream;
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+
+@property (strong,nonatomic) SocketHandler *sh;
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;

@@ -7,33 +7,20 @@
 //
 
 #import "AppDelegate.h"
+#import "SocketHandler.h"
 
 @interface AppDelegate ()
 
 @end
 
-NSInputStream *inputstream;
-NSOutputStream *outputstream;
-
 @implementation AppDelegate
 
--(void)initNetworkConnection{
-    CFReadStreamRef readStream;
-    CFWriteStreamRef writeStream;
-    CFStreamCreatePairWithSocketToHost(NULL, (CFStringRef)@"localhost", 8124, &readStream, &writeStream);
-    inputstream = (__bridge NSInputStream *)readStream;
-    outputstream = (__bridge NSOutputStream *)writeStream;
-    [inputstream setDelegate:self];
-    [outputstream setDelegate:self];
-    [inputstream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-    [outputstream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-    [inputstream open];
-    [outputstream open];
-}
+@synthesize sh;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    [self initNetworkConnection];
+    sh = [[SocketHandler alloc] init];
+    [sh initNetworkConnection];
     return YES;
 }
 

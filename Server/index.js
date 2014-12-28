@@ -103,7 +103,7 @@ server.on('connection',function(socket){
 				if(isEmpty(data)){ //Login failed
 				    var backjson = {
 					"BackMsg":"LogInRes",
-					"Resule":"false"
+					"Result":"false"
 				    };
 				    var backmsg = JSON.stringify(backjson);
 				    console.log('false.');
@@ -122,7 +122,7 @@ server.on('connection',function(socket){
 				    else{ //Login failed
 					var backjson = {
 					    "BackMsg":"LogInRes",
-					    "Resule":"false"
+					    "Result":"false"
 					};
 					var backmsg = JSON.stringify(backjson);
 					console.log('false');

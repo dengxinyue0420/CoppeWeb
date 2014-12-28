@@ -19,5 +19,5 @@
 
 -(IBAction)signUp;
 -(BOOL) checkPwd:(NSString*) pwd confirm:(NSString*) confirmPwd;
-
+-(void) receivedNotification:(NSNotification*) notification;
 @end

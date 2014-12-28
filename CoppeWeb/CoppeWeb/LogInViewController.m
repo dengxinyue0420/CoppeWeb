@@ -8,7 +8,8 @@
 
 #import "LogInViewController.h"
 #import "customTextField.h"
-#import "AppDelegate.h"
+#import "SocketHandler.h"
+#import "PostTableViewController.h"
 
 @interface LogInViewController ()
 
@@ -22,9 +23,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    [self initNetworkConnection];
     // Do any additional setup after loading the view.
     self.pwdField.secureTextEntry = YES;
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receivedNotification:)
+                                                 name:@"login_success"
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receivedNotification:)
+                                                 name:@"login_fail"
+                                               object:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -39,8 +47,6 @@
     NSString *msg = [NSString stringWithFormat:@"{\"Target Action\":\"Log In\",\"UserName\":\"%@\",\"PassWord\":\"%@\"}",email,pwd];
     NSData *data = [[NSData alloc]initWithData:[msg dataUsingEncoding:NSASCIIStringEncoding]];
     [outputstream write:[data bytes] maxLength:[data length]];
-    self.emailField.text = @"";
-    self.pwdField.text = @"";
 }
 
 -(IBAction)forgetPwdPressed {
@@ -50,19 +56,17 @@
 -(IBAction)signUpPressed{
     NSLog(@"sign up");
 }
-//-(void)initNetworkConnection{
-//    CFReadStreamRef readStream;
-//    CFWriteStreamRef writeStream;
-//    CFStreamCreatePairWithSocketToHost(NULL, (CFStringRef)@"localhost", 8124, &readStream, &writeStream);
-//    inputstream = (__bridge NSInputStream *)readStream;
-//    outputstream = (__bridge NSOutputStream *)writeStream;
-//    [inputstream setDelegate:self];
-//    [outputstream setDelegate:self];
-//    [inputstream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-//    [outputstream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-//    [inputstream open];
-//    [outputstream open];
-//}
+-(void) receivedNotification:(NSNotification*) notification{
+    if([[notification name]isEqualToString:@"login_success"]){
+        PostTableViewController *pvc = [self.storyboard instantiateViewControllerWithIdentifier:@"post"];
+        [self presentViewController:pvc animated:YES completion:nil];
+        
+    }else if([[notification name]isEqualToString:@"login_fail"]){
+        self.emailField.text = @"";
+        self.pwdField.text = @"";
+        NSLog(@"login fail");
+    }
+}
 /*
 #pragma mark - Navigation
 
