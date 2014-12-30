@@ -14,7 +14,7 @@
 
 - (NSDate *)LocalDate;
 
-- (NSString *)GMTString;
++ (NSString *)GMTString:(NSDate*) date;
 
 - (NSMutableDictionary *)TimeArrayFromTimeString:(NSString *)time;
 

@@ -26,8 +26,7 @@
     return today;
 }
 
-- (NSString *)GMTString{ //Give GMT time as a string.
-    NSDate *date = [[NSDate alloc]init];
++ (NSString *)GMTString:(NSDate *) date{ //Give GMT time as a string.
     NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
     formatter.dateFormat = @"yyyyMMddHHmm";
     NSTimeZone *gmt = [NSTimeZone timeZoneWithAbbreviation:@"GMT"];

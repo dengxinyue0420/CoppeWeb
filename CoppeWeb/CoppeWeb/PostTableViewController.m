@@ -9,6 +9,7 @@
 #import "PostTableViewController.h"
 #import "AppDelegate.h"
 #import "MyPostInfo.h"
+#import "NSDate+TimeTools.h"
 
 
 @interface PostTableViewController ()
@@ -24,17 +25,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [self fetchNewPost];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"MyPostInfo" inManagedObjectContext:managedObjectContext];
-    [fetchRequest setEntity:entity];
-    NSError *error;
-    self.myPost = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    
+//    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+//    NSEntityDescription *entity = [NSEntityDescription entityForName:@"MyPostInfo" inManagedObjectContext:managedObjectContext];
+//    [fetchRequest setEntity:entity];
+//    NSError *error;
+//    self.myPost = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -62,7 +64,23 @@
     return cell;
 }
 
+- (NSString*) getLastweek:(NSDate*) currentTime{
+    NSCalendar *cal = [NSCalendar currentCalendar];
+    NSDateComponents *comps = [NSDateComponents new];
+    [comps setDay:-7];
+    NSDate *lastWeek = [cal dateByAddingComponents:comps toDate:currentTime options:0];
+    return [NSDate GMTString:lastWeek];
+}
 
+-(void) fetchNewPost{
+    NSDate *currentDate = [NSDate date];
+    NSString *currentTime = [NSDate GMTString:currentDate];
+    NSString *lastWeek = [self getLastweek:currentDate];
+    NSString *msg = [NSString stringWithFormat:@"{\"Target Action\":\"Pull Posts\",\"AttributeName\":\"All\",\"SortingMethod\":\"CreateDate\",\"Interval\":\"[%@,%@]\"}",lastWeek,currentTime];
+    NSData *data = [[NSData alloc]initWithData:[msg dataUsingEncoding:NSASCIIStringEncoding]];
+    [outputstream write:[data bytes] maxLength:[data length]];
+    
+}
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
