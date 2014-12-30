@@ -10,7 +10,6 @@
 #import <CoreData/CoreData.h>
 #import "SocketHandler.h"
 
-
 @interface AppDelegate : UIResponder <UIApplicationDelegate,NSStreamDelegate>
 
 @property (strong, nonatomic) UIWindow *window;

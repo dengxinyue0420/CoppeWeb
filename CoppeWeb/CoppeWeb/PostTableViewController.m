@@ -7,12 +7,20 @@
 //
 
 #import "PostTableViewController.h"
+#import "AppDelegate.h"
+#import "MyPostInfo.h"
+
 
 @interface PostTableViewController ()
+
+@property NSArray *myPost;
 
 @end
 
 @implementation PostTableViewController
+
+@synthesize managedObjectContext;
+@synthesize myPost;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -22,6 +30,11 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"MyPostInfo" inManagedObjectContext:managedObjectContext];
+    [fetchRequest setEntity:entity];
+    NSError *error;
+    self.myPost = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -32,26 +45,23 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return [self.myPost count];
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"postCell" forIndexPath:indexPath];
+    MyPostInfo *info = [self.myPost objectAtIndex:indexPath.row];
+    cell.textLabel.text = info.title;
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.

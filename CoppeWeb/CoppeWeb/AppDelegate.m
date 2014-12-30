@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "SocketHandler.h"
+#import "LogInViewController.h"
 
 @interface AppDelegate ()
 
@@ -21,6 +22,9 @@
     // Override point for customization after application launch.
     sh = [[SocketHandler alloc] init];
     [sh initNetworkConnection];
+    UINavigationController *navigationController = (UINavigationController*)self.window.rootViewController;
+    LogInViewController *logInController = (LogInViewController*)navigationController.topViewController;
+    logInController.managedObjectContext = self.managedObjectContext;
     return YES;
 }
 

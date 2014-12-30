@@ -10,8 +10,9 @@
 #import "customTextField.h"
 
 @interface LogInViewController : UIViewController <NSStreamDelegate>
-@property (weak, nonatomic) IBOutlet customTextField *emailField;
-@property (weak, nonatomic) IBOutlet customTextField *pwdField;
+@property IBOutlet customTextField *emailField;
+@property IBOutlet customTextField *pwdField;
+@property NSManagedObjectContext *managedObjectContext;
 //@property NSInputStream *inputstream;
 //@property NSOutputStream *outputstream;
 

@@ -10,4 +10,6 @@
 
 @interface PostTableViewController : UITableViewController
 
+@property NSManagedObjectContext *managedObjectContext;
+
 @end
