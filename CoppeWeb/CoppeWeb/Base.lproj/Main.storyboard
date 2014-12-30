@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="element201412228" translatesAutoresizingMaskIntoConstraints="NO" id="b57-6k-M5t">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="element201412228" translatesAutoresizingMaskIntoConstraints="NO" id="b57-6k-M5t">
                                 <rect key="frame" x="0.0" y="0.0" width="661" height="628"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="400" id="d7j-5Q-koe"/>
@@ -315,6 +315,7 @@
                         <viewControllerLayoutGuide type="bottom" id="s47-wr-kqC"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="9pB-bS-KtH">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="36o-R1-Nmo" customClass="customTextField">
