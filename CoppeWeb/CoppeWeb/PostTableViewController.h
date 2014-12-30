@@ -12,4 +12,6 @@
 
 @property NSManagedObjectContext *managedObjectContext;
 
+-(IBAction)unwindToPost:(UIStoryboardSegue*) segue;
+
 @end
