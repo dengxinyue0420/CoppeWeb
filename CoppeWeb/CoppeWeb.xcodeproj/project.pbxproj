@@ -17,6 +17,7 @@
 		B44CADB21A47BB2900C73D0D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B44CADB11A47BB2900C73D0D /* Images.xcassets */; };
 		B44CADB51A47BB2900C73D0D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B44CADB31A47BB2900C73D0D /* LaunchScreen.xib */; };
 		B44CADC11A47BB2900C73D0D /* CoppeWebTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B44CADC01A47BB2900C73D0D /* CoppeWebTests.m */; };
+		B4F952FC1A52800B00C49E5E /* NSDate+TimeTools.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F952FB1A52800B00C49E5E /* NSDate+TimeTools.m */; };
 		C7D6F663EC7A763BA2211870 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 27FB0FEE0DA3CC655F20DDE0 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +52,8 @@
 		B44CADBA1A47BB2900C73D0D /* CoppeWebTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoppeWebTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B44CADBF1A47BB2900C73D0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B44CADC01A47BB2900C73D0D /* CoppeWebTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoppeWebTests.m; sourceTree = "<group>"; };
+		B4F952FA1A52800B00C49E5E /* NSDate+TimeTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDate+TimeTools.h"; path = "../../CvtDate/CvtDate/NSDate+TimeTools.h"; sourceTree = "<group>"; };
+		B4F952FB1A52800B00C49E5E /* NSDate+TimeTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDate+TimeTools.m"; path = "../../CvtDate/CvtDate/NSDate+TimeTools.m"; sourceTree = "<group>"; };
 		E61E4AA2F746276C1F90515A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -114,6 +117,8 @@
 			isa = PBXGroup;
 			children = (
 				B44CADAE1A47BB2900C73D0D /* Main.storyboard */,
+				B4F952FA1A52800B00C49E5E /* NSDate+TimeTools.h */,
+				B4F952FB1A52800B00C49E5E /* NSDate+TimeTools.m */,
 				4A7C1A3C1A4E5120006551AB /* SignUpViewController.h */,
 				4A7C1A3D1A4E5120006551AB /* SignUpViewController.m */,
 				B44CADB11A47BB2900C73D0D /* Images.xcassets */,
@@ -297,6 +302,7 @@
 				B44CADA71A47BB2900C73D0D /* AppDelegate.m in Sources */,
 				4ABB8F691A48034500CF816F /* customTextField.m in Sources */,
 				B44CADA41A47BB2900C73D0D /* main.m in Sources */,
+				B4F952FC1A52800B00C49E5E /* NSDate+TimeTools.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
