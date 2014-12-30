@@ -76,7 +76,7 @@
     NSDate *currentDate = [NSDate date];
     NSString *currentTime = [NSDate GMTString:currentDate];
     NSString *lastWeek = [self getLastweek:currentDate];
-    NSString *msg = [NSString stringWithFormat:@"{\"Target Action\":\"Pull Posts\",\"AttributeName\":\"All\",\"SortingMethod\":\"CreateDate\",\"Interval\":\"[%@,%@]\"}",lastWeek,currentTime];
+    NSString *msg = [NSString stringWithFormat:@"{\"Target Action\":\"Pull Posts\",\"AttributeName\":\"All\",\"SortingMethod\":\"CreateDate\",\"Interval\":\"[\"%@\",\"%@\"]\"}",lastWeek,currentTime];
     NSData *data = [[NSData alloc]initWithData:[msg dataUsingEncoding:NSASCIIStringEncoding]];
     [outputstream write:[data bytes] maxLength:[data length]];
     
