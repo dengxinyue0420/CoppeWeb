@@ -1,0 +1,13 @@
+//
+//  PostTableViewController.h
+//  CoppeWeb
+//
+//  Created by Xinyue Deng on 12/28/14.
+//  Copyright (c) 2014 Yicheng Wang. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface PostTableViewController : UITableViewController
+
+@end

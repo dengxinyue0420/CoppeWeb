@@ -7,7 +7,7 @@
 //
 
 #import "SignUpViewController.h"
-#import "AppDelegate.h"
+#import "SocketHandler.h"
 
 @interface SignUpViewController ()
 
@@ -18,11 +18,20 @@
 @synthesize emailField;
 @synthesize pwdField;
 @synthesize confirmPwdField;
+@synthesize alert;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.pwdField.secureTextEntry = YES;
     self.confirmPwdField.secureTextEntry = YES;
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receivedNotification:)
+                                                 name:@"signUp_success"
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receivedNotification:)
+                                                 name:@"signUp_existed"
+                                               object:nil];
     // Do any additional setup after loading the view.
 }
 
@@ -43,8 +52,9 @@
         self.emailField.text = @"";
         self.pwdField.text = @"";
         self.confirmPwdField.text = @"";
+        
     }else{
-        NSLog(@"password doesn't match");
+        alert.text = @"password doesn't match";
     }
 }
 
@@ -53,6 +63,15 @@
         return YES;
     }else{
         return NO;
+    }
+}
+
+- (void) receivedNotification:(NSNotification*) notification{
+    if ([[notification name]isEqualToString:@"signUp_success"]) {
+        self.alert.text = @"success";
+        [self.navigationController popViewControllerAnimated:YES];
+    }else if([[notification name]isEqualToString:@"signUp_existed"]){
+        self.alert.text = @"username existed";
     }
 }
 /*
