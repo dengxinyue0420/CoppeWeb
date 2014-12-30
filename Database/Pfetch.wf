@@ -1,0 +1,10 @@
+Post Fetch Workflow.
+
+
+1: query the most recent 6.
+
+2: get the set of those posts.
+
+3: get the user item and fetch the profile photo.
+
+4. send everything in a big json output(including the image binary) to the client-end.

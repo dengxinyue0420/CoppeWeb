@@ -20,6 +20,7 @@
 		B44CADB21A47BB2900C73D0D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B44CADB11A47BB2900C73D0D /* Images.xcassets */; };
 		B44CADB51A47BB2900C73D0D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B44CADB31A47BB2900C73D0D /* LaunchScreen.xib */; };
 		B44CADC11A47BB2900C73D0D /* CoppeWebTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B44CADC01A47BB2900C73D0D /* CoppeWebTests.m */; };
+		B4F952FF1A52830A00C49E5E /* NSDate+TimeTools.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F952FE1A52830A00C49E5E /* NSDate+TimeTools.m */; };
 		C7D6F663EC7A763BA2211870 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 27FB0FEE0DA3CC655F20DDE0 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +61,8 @@
 		B44CADBA1A47BB2900C73D0D /* CoppeWebTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoppeWebTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B44CADBF1A47BB2900C73D0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B44CADC01A47BB2900C73D0D /* CoppeWebTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoppeWebTests.m; sourceTree = "<group>"; };
+		B4F952FD1A52830A00C49E5E /* NSDate+TimeTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+TimeTools.h"; sourceTree = "<group>"; };
+		B4F952FE1A52830A00C49E5E /* NSDate+TimeTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+TimeTools.m"; sourceTree = "<group>"; };
 		E61E4AA2F746276C1F90515A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -96,8 +99,6 @@
 			children = (
 				4ABB8F641A47E3B300CF816F /* LogInViewController.h */,
 				4ABB8F651A47E3B300CF816F /* LogInViewController.m */,
-				4A7C1A3C1A4E5120006551AB /* SignUpViewController.h */,
-				4A7C1A3D1A4E5120006551AB /* SignUpViewController.m */,
 			);
 			name = LogIn_signUp;
 			sourceTree = "<group>";
@@ -155,6 +156,10 @@
 				4A3182751A5039C6007B57D3 /* Post */,
 				4A3182741A503983007B57D3 /* LogIn_signUp */,
 				B44CADAE1A47BB2900C73D0D /* Main.storyboard */,
+				B4F952FD1A52830A00C49E5E /* NSDate+TimeTools.h */,
+				B4F952FE1A52830A00C49E5E /* NSDate+TimeTools.m */,
+				4A7C1A3C1A4E5120006551AB /* SignUpViewController.h */,
+				4A7C1A3D1A4E5120006551AB /* SignUpViewController.m */,
 				B44CADB11A47BB2900C73D0D /* Images.xcassets */,
 				B44CADB31A47BB2900C73D0D /* LaunchScreen.xib */,
 				B44CADA81A47BB2900C73D0D /* CoppeWeb.xcdatamodeld */,
@@ -332,6 +337,7 @@
 			files = (
 				4A7E63461A51A77B00FEA62F /* MyPostInfo.m in Sources */,
 				4ABB8F661A47E3B300CF816F /* LogInViewController.m in Sources */,
+				B4F952FF1A52830A00C49E5E /* NSDate+TimeTools.m in Sources */,
 				4A31826C1A4FB56B007B57D3 /* PostTableViewController.m in Sources */,
 				B44CADAA1A47BB2900C73D0D /* CoppeWeb.xcdatamodeld in Sources */,
 				4A7C1A3E1A4E5120006551AB /* SignUpViewController.m in Sources */,

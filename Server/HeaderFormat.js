@@ -1,7 +1,7 @@
 Action Headers:
 
 //Actions sent to Server.
-SignUpAction: {
+SignUpAction: { //Sign Up
     "Target Action":"Sign Up",
 	"UserName":...,
 	"NickName":...,
@@ -15,11 +15,20 @@ SignUpAction: {
 	"CreateDate":...
 	}
 
-LogInAction: {
+LogInAction: {  //LogIn
     "Target Action":"Log In",
 	"UserName":UserName,
 	"PassWord":PassWord
 	}
+
+PullPosts: {  // Pull post between index.
+    "Target Action":"Pull Posts",
+	"AttributeName":[All,UserName, TagSet,School],
+	"Attribute":[Attribute-Set](if school, a string)(if all, no Attribute to be declared)
+	"SortingMethod":[CreateDate, VisitCount]
+	"Interval":[begin,end]
+}
+
 
 
 //Actions sent back to Clients.
