@@ -20,6 +20,7 @@ server.on('connection',function(socket){
 		console.log('lose one connection');
 	    });
 	socket.on('data',function(data){
+		console.log(data.toString());
 		var Action = JSON.parse(data.toString());
 		console.log(Action);
 		//Sign up Action
@@ -139,8 +140,8 @@ server.on('connection',function(socket){
 		    if(Action['AttributeName'] == 'All'){ //fetch all
 			if(Action['SortingMethod'] == 'CreateDate'){ //date sorted in all
 			    var intervalarray = JSON.parse(Action['Interval']);
-			    var begintime = intervalarray[0];
-			    var endtime = intervalarray[1];
+			    var begintime = intervalarray[0].toString();
+			    var endtime = intervalarray[1].toString();
 			    var item = {
 				'TableName':'Post',
 				'ScanFilter': {
