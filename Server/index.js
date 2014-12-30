@@ -134,7 +134,33 @@ server.on('connection',function(socket){
 		    
 			});
 		    
-		}
+		}// end log
+		if(Action['Target Action'] == 'Pull Posts'){ //Fetch posts.
+		    if(Action['AttributeName'] == 'All'){ //fetch all
+			if(Action['SortingMethod'] == 'CreateDate'){ //date sorted in all
+			    var begintime = Action['Interval'][0];
+			    var endtime = Action['Interval'][1];
+			    var item = {
+				'TableName':'Post',
+				'ScanFilter': {
+				    'CreateDate':{
+					'ComparisonOperator':'BETWEEN',
+					'AttributeValueList':[{'N':begintime},{'N':endtime}]
+				    }
+				}
+			    };
+			    dynamodb.scan(item,function(err,data){
+				    if(err) console.log(err,err.stack);
+				    else{
+					var backmsg = JSON.stringify(data);
+					socket.write(backmsg);
+					console.log(backmsg);
+				    }
+				});
+			} //end date sorted in all
+			
+		    } // end all
+		}// end post
 	    });
 	
 
