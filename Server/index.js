@@ -138,8 +138,9 @@ server.on('connection',function(socket){
 		if(Action['Target Action'] == 'Pull Posts'){ //Fetch posts.
 		    if(Action['AttributeName'] == 'All'){ //fetch all
 			if(Action['SortingMethod'] == 'CreateDate'){ //date sorted in all
-			    var begintime = Action['Interval'][0];
-			    var endtime = Action['Interval'][1];
+			    var intervalarray = JSON.parse(Action['Interval']);
+			    var begintime = intervalarray[0];
+			    var endtime = intervalarray[1];
 			    var item = {
 				'TableName':'Post',
 				'ScanFilter': {
