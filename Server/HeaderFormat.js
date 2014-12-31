@@ -30,6 +30,18 @@ PullPosts: {  // Pull post between index.
 	"ReqTime":Time (seconds specified)
 }
 
+AddPosts: { // add post (all string)
+    "Target Action":"Add Post",
+	"PostName":PostName,
+	"UserName":UserName,
+	"School":School,
+	"TagSet":Set,
+	"Content":Content,
+	"FollowCount":0,
+	"VisitCount":1,
+	"CreateDate":CreateDate
+}
+
 
 
 //Actions sent back to Clients.

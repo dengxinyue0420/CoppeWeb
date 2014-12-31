@@ -167,7 +167,27 @@ server.on('connection',function(socket){
 			} //end date sorted in all
 			
 		    } // end all
-		}// end post
+		}// end fetch post
+		if(Action['Target Action'] == 'Add Post'){ // add post.
+		    var item = {
+			'TableName':'Post',
+			'Item':{
+			    'PostID':{'N':idgen().toString()},
+			    'PostName':{'S':Action['PostName']},
+			    'UserName':{'S':Action['UserName']},
+			    'School':{'S':Action['School']},
+			    'TagSet':{'SS':Action['TagSet']},
+			    'Content':{'S':Action['Content']},
+			    'FollowCount':{'N':'0'},
+			    'VisitCount':{'N':'1'},
+			    'CreateDate':{'N':Action['CreateDate']}
+			}
+		    };
+		    dynamodb.putItem(item,function(err,data){
+			    if(err) console.log(err, err.stack);
+			    else console.log('update successfully.');
+			});
+		} // end add post
 	    });
 	
 
@@ -175,6 +195,7 @@ server.on('connection',function(socket){
 
 server.listen(8124);
 console.log('Server Working.');
+
 //Other Functions
 
 function isEmpty(obj) { //Check if Object is empty.
