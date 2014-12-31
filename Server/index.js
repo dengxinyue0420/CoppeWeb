@@ -152,7 +152,10 @@ server.on('connection',function(socket){
 				}
 			    };
 			    dynamodb.scan(item,function(err,data){
-				    if(err) console.log(err,err.stack);
+				    if(err) {
+					console.log(err,err.stack);
+					
+				    }
 				    else{
 					var backjson = {
 					    "BackMsg":"Post",
@@ -184,8 +187,26 @@ server.on('connection',function(socket){
 			}
 		    };
 		    dynamodb.putItem(item,function(err,data){
-			    if(err) console.log(err, err.stack);
-			    else console.log('update successfully.');
+			    if(err) {
+				console.log(err, err.stack);
+				var backjson = {
+				    "BackMsg":"AddPostRes",
+				    "ReqTime":Action['ReqTime'],
+				    "Result":"failed"
+				};
+				var backmsg = JSON.stringify(backjson);
+				socket.write(backmsg);
+			    }
+			    else{
+				console.log('update successfully.');
+				var backjson = {
+                                    "BackMsg":"AddPostRes",
+				    "ReqTime":Action['ReqTime'],
+                                    "Result":"successful"
+                                };
+				var backmsg = JSON.stringify(backjson);
+                                socket.write(backmsg);
+			    }
 			});
 		} // end add post
 	    });

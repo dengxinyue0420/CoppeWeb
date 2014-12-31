@@ -35,11 +35,12 @@ AddPosts: { // add post (all string)
 	"PostName":PostName,
 	"UserName":UserName,
 	"School":School,
-	"TagSet":Set,
+	"TagSet":Set,(an array, but contain string)
 	"Content":Content,
 	"FollowCount":0,
 	"VisitCount":1,
 	"CreateDate":CreateDate
+	"ReqTime":Time
 }
 
 
@@ -60,4 +61,10 @@ PostBack: {
     "BackMsg":"Post",
 	"ReqTime":Time,
 	"BackPosts":JSON
+}
+
+AddPostBack : {
+    "BackMsg":"AddPostRes",
+	"ReqTime":Time,
+	"Result":"failed"|"successful"
 }
