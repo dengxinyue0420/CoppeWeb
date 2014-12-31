@@ -58,7 +58,6 @@
 }
 -(void) receivedNotification:(NSNotification*) notification{
     if([[notification name]isEqualToString:@"login_success"]){
-        NSLog(@"received");
         [self performSegueWithIdentifier:@"showPost" sender:self];
         
     }else if([[notification name]isEqualToString:@"login_fail"]){

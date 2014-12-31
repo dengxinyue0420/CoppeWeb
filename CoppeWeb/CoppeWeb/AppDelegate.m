@@ -21,6 +21,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     sh = [[SocketHandler alloc] init];
+    sh.managedObjectContext = self.managedObjectContext;
     [sh initNetworkConnection];
     UINavigationController *navigationController = (UINavigationController*)self.window.rootViewController;
     LogInViewController *logInController = (LogInViewController*)navigationController.topViewController;

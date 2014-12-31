@@ -26,7 +26,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    [self fetchNewPost];
+    [self fetchNewPost];
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(fetchNewPost) forControlEvents:UIControlEventValueChanged];
     
@@ -35,12 +35,14 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"PostInfo" inManagedObjectContext:managedObjectContext];
-    [fetchRequest setEntity:entity];
-    NSError *error;
-    self.posts = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receivedNotification:)
+                                                 name:@"no_more_post"
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(receivedNotification:)
+                                                 name:@"fetch_data_completed"
+                                               object:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -61,7 +63,6 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    NSLog(@"%d",[self.posts count]);
     return [self.posts count];
 }
 
@@ -89,6 +90,28 @@
     NSData *data = [[NSData alloc]initWithData:[msg dataUsingEncoding:NSASCIIStringEncoding]];
     [outputstream write:[data bytes] maxLength:[data length]];
     [self.refreshControl endRefreshing];
+}
+
+-(void) fetchFromCoreData{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"PostInfo" inManagedObjectContext:managedObjectContext];
+    [fetchRequest setEntity:entity];
+    NSError *error;
+    self.posts = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
+}
+
+-(void) receivedNotification:(NSNotification*) notification{
+    if([[notification name]isEqualToString:@"fetch_data_completed"]){
+        NSLog(@"received notification");
+        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+        NSEntityDescription *entity = [NSEntityDescription entityForName:@"PostInfo"
+                                                  inManagedObjectContext:self.managedObjectContext];
+        [fetchRequest setEntity:entity];
+        NSError *error;
+        self.posts = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+        NSLog(@"%d",[self.posts count]);
+        [self.tableView reloadData];
+    }
 }
 /*
 // Override to support conditional editing of the table view.
