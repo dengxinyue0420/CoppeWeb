@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4A31826C1A4FB56B007B57D3 /* PostTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A31826B1A4FB56B007B57D3 /* PostTableViewController.m */; };
 		4A4158B21A52EDE1005B58B5 /* AddPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A4158B11A52EDE1005B58B5 /* AddPostViewController.m */; };
+		4A4158B51A530394005B58B5 /* PostInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A4158B41A530394005B58B5 /* PostInfo.m */; };
 		4A7C1A3E1A4E5120006551AB /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A7C1A3D1A4E5120006551AB /* SignUpViewController.m */; };
 		4A7E63461A51A77B00FEA62F /* MyPostInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A7E63451A51A77B00FEA62F /* MyPostInfo.m */; };
 		4ABB8F661A47E3B300CF816F /* LogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ABB8F651A47E3B300CF816F /* LogInViewController.m */; };
@@ -42,6 +43,8 @@
 		4A31826B1A4FB56B007B57D3 /* PostTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostTableViewController.m; sourceTree = "<group>"; };
 		4A4158B01A52EDE1005B58B5 /* AddPostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddPostViewController.h; sourceTree = "<group>"; };
 		4A4158B11A52EDE1005B58B5 /* AddPostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPostViewController.m; sourceTree = "<group>"; };
+		4A4158B31A530394005B58B5 /* PostInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostInfo.h; sourceTree = "<group>"; };
+		4A4158B41A530394005B58B5 /* PostInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostInfo.m; sourceTree = "<group>"; };
 		4A7C1A3C1A4E5120006551AB /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
 		4A7C1A3D1A4E5120006551AB /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
 		4A7E63441A51A77B00FEA62F /* MyPostInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPostInfo.h; sourceTree = "<group>"; };
@@ -120,6 +123,8 @@
 		4A7E63471A51A78800FEA62F /* coreData */ = {
 			isa = PBXGroup;
 			children = (
+				4A4158B31A530394005B58B5 /* PostInfo.h */,
+				4A4158B41A530394005B58B5 /* PostInfo.m */,
 				4A7E63441A51A77B00FEA62F /* MyPostInfo.h */,
 				4A7E63451A51A77B00FEA62F /* MyPostInfo.m */,
 			);
@@ -351,6 +356,7 @@
 				B44CADA71A47BB2900C73D0D /* AppDelegate.m in Sources */,
 				4ABB8F691A48034500CF816F /* customTextField.m in Sources */,
 				B44CADA41A47BB2900C73D0D /* main.m in Sources */,
+				4A4158B51A530394005B58B5 /* PostInfo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,33 +10,37 @@
 #import "AppDelegate.h"
 #import "MyPostInfo.h"
 #import "NSDate+TimeTools.h"
+#import "PostInfo.h"
 
 
 @interface PostTableViewController ()
 
-@property NSArray *myPost;
+@property NSArray *posts;
+@property UIRefreshControl *refreshControl;
 
 @end
 
 @implementation PostTableViewController
 
 @synthesize managedObjectContext;
-@synthesize myPost;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
- //   [self fetchNewPost];
+//    [self fetchNewPost];
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(fetchNewPost) forControlEvents:UIControlEventValueChanged];
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-//    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-//    NSEntityDescription *entity = [NSEntityDescription entityForName:@"MyPostInfo" inManagedObjectContext:managedObjectContext];
-//    [fetchRequest setEntity:entity];
-//    NSError *error;
-//    self.myPost = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"PostInfo" inManagedObjectContext:managedObjectContext];
+    [fetchRequest setEntity:entity];
+    NSError *error;
+    self.posts = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -57,14 +61,15 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return [self.myPost count];
+    NSLog(@"%d",[self.posts count]);
+    return [self.posts count];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"postCell" forIndexPath:indexPath];
-    MyPostInfo *info = [self.myPost objectAtIndex:indexPath.row];
-    cell.textLabel.text = info.title;
+    PostInfo *info = [self.posts objectAtIndex:indexPath.row];
+    cell.textLabel.text = info.name;
     return cell;
 }
 
@@ -81,10 +86,9 @@
     NSString *currentTime = [NSDate GMTString:currentDate];
     NSString *lastWeek = [self getLastweek:currentDate];
     NSString *msg = [NSString stringWithFormat:@"{\"Target Action\":\"Pull Posts\",\"AttributeName\":\"All\",\"SortingMethod\":\"CreateDate\",\"Interval\":\"[%@,%@]\"}",lastWeek,currentTime];
-    NSLog(@"%@",msg);
     NSData *data = [[NSData alloc]initWithData:[msg dataUsingEncoding:NSASCIIStringEncoding]];
     [outputstream write:[data bytes] maxLength:[data length]];
-    
+    [self.refreshControl endRefreshing];
 }
 /*
 // Override to support conditional editing of the table view.

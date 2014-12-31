@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import "SocketHandler.h"
 #import "LogInViewController.h"
-
+#import "PostInfo.h"
 @interface AppDelegate ()
 
 @end

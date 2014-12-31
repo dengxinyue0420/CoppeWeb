@@ -4,7 +4,14 @@
         <attribute name="createDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="postName" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="PostInfo" representedClassName="PostInfo" syncable="YES">
+        <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="createDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <elements>
-        <element name="MyPostInfo" positionX="-1305" positionY="-639" width="128" height="73"/>
+        <element name="MyPostInfo" positionX="1897" positionY="1196" width="128" height="73"/>
+        <element name="PostInfo" positionX="1627" positionY="1076" width="128" height="103"/>
     </elements>
 </model>
