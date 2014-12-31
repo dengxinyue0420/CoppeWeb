@@ -27,6 +27,7 @@ PullPosts: {  // Pull post between index.
 	"Attribute":[Attribute-Set](if school, a string)(if all, no Attribute to be declared)
 	"SortingMethod":[CreateDate, VisitCount]
 	"Interval":[begin,end]
+	"ReqTime":Time (seconds specified)
 }
 
 
@@ -41,4 +42,10 @@ SignUpAction: {
 LogInAction: {
     "BackMsg":"LogInRes",
 	"Result":...("false","true")
+}
+
+PostBack: {
+    "BackMsg":"Post",
+	"ReqTime":Time,
+	"BackPosts":JSON
 }

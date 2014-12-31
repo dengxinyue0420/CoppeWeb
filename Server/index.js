@@ -154,7 +154,12 @@ server.on('connection',function(socket){
 			    dynamodb.scan(item,function(err,data){
 				    if(err) console.log(err,err.stack);
 				    else{
-					var backmsg = JSON.stringify(data);
+					var backjson = {
+					    "BackMsg":"Post",
+					    "ReqTime":Action['ReqTime'],
+					    "BackPosts":data
+					};
+					var backmsg = JSON.stringify(backjson);
 					socket.write(backmsg);
 					console.log(backmsg);
 				    }
