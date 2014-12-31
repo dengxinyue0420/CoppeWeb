@@ -27,6 +27,20 @@ PullPosts: {  // Pull post between index.
 	"Attribute":[Attribute-Set](if school, a string)(if all, no Attribute to be declared)
 	"SortingMethod":[CreateDate, VisitCount]
 	"Interval":[begin,end]
+	"ReqTime":Time (seconds specified)
+}
+
+AddPosts: { // add post (all string)
+    "Target Action":"Add Post",
+	"PostName":PostName,
+	"UserName":UserName,
+	"School":School,
+	"TagSet":Set,(an array, but contain string)
+	"Content":Content,
+	"FollowCount":0,
+	"VisitCount":1,
+	"CreateDate":CreateDate
+	"ReqTime":Time
 }
 
 
@@ -41,4 +55,16 @@ SignUpAction: {
 LogInAction: {
     "BackMsg":"LogInRes",
 	"Result":...("false","true")
+}
+
+PostBack: {
+    "BackMsg":"Post",
+	"ReqTime":Time,
+	"BackPosts":JSON
+}
+
+AddPostBack : {
+    "BackMsg":"AddPostRes",
+	"ReqTime":Time,
+	"Result":"failed"|"successful"
 }
