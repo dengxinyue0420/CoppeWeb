@@ -25,9 +25,8 @@ PullPosts: {  // Pull post between index.
     "Target Action":"Pull Posts",
 	"AttributeName":[All,UserName, TagSet,School],
 	"Attribute":[Attribute-Set](if school, a string)(if all, no Attribute to be declared)
-	"SortingMethod":[CreateDate, VisitCount]
-	"Interval":[begin,end]
-	"ReqTime":Time (seconds specified)
+	"SortingMethod":[CreateDate, VisitCount]  (for username, this attribute could only be createdate)
+	"Interval":[begin,end]  (for username, this attribute should contain all the timeline for this user)
 }
 
 AddPosts: { // add post (all string)
@@ -40,7 +39,6 @@ AddPosts: { // add post (all string)
 	"FollowCount":0,
 	"VisitCount":1,
 	"CreateDate":CreateDate
-	"ReqTime":Time
 }
 
 
@@ -59,12 +57,11 @@ LogInAction: {
 
 PostBack: {
     "BackMsg":"Post",
-	"ReqTime":Time,
+	"AttributeName":AttributeName,
 	"BackPosts":JSON
 }
 
 AddPostBack : {
     "BackMsg":"AddPostRes",
-	"ReqTime":Time,
 	"Result":"failed"|"successful"
 }

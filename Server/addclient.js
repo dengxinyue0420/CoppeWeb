@@ -4,14 +4,14 @@ var client = net.connect(8124);
 
 var json = {
     "Target Action":"Add Post",
-    "PostName":"heyheyhey",
+    "PostName":"sisth post",
     "UserName":"yicheng",
     "School":"vu",
     "TagSet":["vu","mit"],
-    "Content":"lalalalalhehehehehe",
+    "Content":"this is the sixth",
     "FollowCount":"0",
     "VisitCount":"1",
-    "CreateDate":"201412301815"
+    "CreateDate":"201501030720"
 };
 
 var reqmsg = JSON.stringify(json);

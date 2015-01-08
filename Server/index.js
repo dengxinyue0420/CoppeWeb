@@ -11,7 +11,6 @@ AWS.config.update({region:'us-east-1'});
 var dynamodb = new AWS.DynamoDB();
 var net = require('net');
 var server = net.createServer();
-var OnlineSocket = [];
 
 //set up sockets.
 server.on('connection',function(socket){
@@ -159,7 +158,7 @@ server.on('connection',function(socket){
 				    else{
 					var backjson = {
 					    "BackMsg":"Post",
-					    "ReqTime":Action['ReqTime'],
+					    "AttributeName":"All",
 					    "BackPosts":data
 					};
 					var backmsg = JSON.stringify(backjson);
@@ -170,6 +169,41 @@ server.on('connection',function(socket){
 			} //end date sorted in all
 			
 		    } // end all
+		    if(Action['Attribute Name'] == 'School'){// fetch post by School.
+			if(Action['SortingMethod'] == 'CreateDate'){  //sort school post by date
+			    var intervalarray = JSON.parse(Action['Interval']);
+                            var begintime = intervalarray[0].toString();
+                            var endtime = intervalarray[1].toString();
+			    var item = {
+				'KeyConditions':{
+				    'School':{
+					'ComparisonOperator':'EQ',
+					'AttributeValueList':[{'S':'vu'}]
+				    },
+				    'CreateDate':{
+					'ComparisonOperator':'BETWEEN',
+					'AttributeValueList':[{'N':begintime},{'N':endtime}]
+				    }
+				},
+				'IndexName':'School-CreateDate-index',
+				'TableName':'Post',
+			    };
+			    dynamodb.query(item,function(err,data){
+				    if(err) console.log(err,err.stack);
+				    else {
+					var backjson = {
+					    'BackMsg':'Post',
+					    'AttributeName':'School',
+					    'BackPosts':data
+					};
+					var backmsg = JSON.stringify(backjson);
+					socket.write(backmsg);
+					console.log(backmsg);
+				    }
+				});
+			} //end sort school post by date			   
+			
+		    } //end fetch post by school.
 		}// end fetch post
 		if(Action['Target Action'] == 'Add Post'){ // add post.
 		    var item = {
@@ -191,7 +225,6 @@ server.on('connection',function(socket){
 				console.log(err, err.stack);
 				var backjson = {
 				    "BackMsg":"AddPostRes",
-				    "ReqTime":Action['ReqTime'],
 				    "Result":"failed"
 				};
 				var backmsg = JSON.stringify(backjson);
@@ -201,7 +234,6 @@ server.on('connection',function(socket){
 				console.log('update successfully.');
 				var backjson = {
                                     "BackMsg":"AddPostRes",
-				    "ReqTime":Action['ReqTime'],
                                     "Result":"successful"
                                 };
 				var backmsg = JSON.stringify(backjson);
