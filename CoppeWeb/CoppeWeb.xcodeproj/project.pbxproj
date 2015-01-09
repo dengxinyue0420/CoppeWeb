@@ -15,6 +15,8 @@
 		4ABB8F661A47E3B300CF816F /* LogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ABB8F651A47E3B300CF816F /* LogInViewController.m */; };
 		4ABB8F691A48034500CF816F /* customTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ABB8F681A48034500CF816F /* customTextField.m */; };
 		4ADF386E1A4F08190012B423 /* SocketHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ADF386D1A4F08190012B423 /* SocketHandler.m */; };
+		B43B0ED31A608485003B2233 /* PostTVcell.m in Sources */ = {isa = PBXBuildFile; fileRef = B43B0ED01A608485003B2233 /* PostTVcell.m */; };
+		B43B0ED41A608485003B2233 /* PostCellManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B43B0ED21A608485003B2233 /* PostCellManager.m */; };
 		B44CADA41A47BB2900C73D0D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B44CADA31A47BB2900C73D0D /* main.m */; };
 		B44CADA71A47BB2900C73D0D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B44CADA61A47BB2900C73D0D /* AppDelegate.m */; };
 		B44CADAA1A47BB2900C73D0D /* CoppeWeb.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B44CADA81A47BB2900C73D0D /* CoppeWeb.xcdatamodeld */; };
@@ -55,6 +57,10 @@
 		4ABB8F681A48034500CF816F /* customTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = customTextField.m; sourceTree = "<group>"; };
 		4ADF386C1A4F08190012B423 /* SocketHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketHandler.h; sourceTree = "<group>"; };
 		4ADF386D1A4F08190012B423 /* SocketHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketHandler.m; sourceTree = "<group>"; };
+		B43B0ECF1A608485003B2233 /* PostTVcell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostTVcell.h; sourceTree = "<group>"; };
+		B43B0ED01A608485003B2233 /* PostTVcell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostTVcell.m; sourceTree = "<group>"; };
+		B43B0ED11A608485003B2233 /* PostCellManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostCellManager.h; sourceTree = "<group>"; };
+		B43B0ED21A608485003B2233 /* PostCellManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostCellManager.m; sourceTree = "<group>"; };
 		B44CAD9E1A47BB2900C73D0D /* CoppeWeb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoppeWeb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B44CADA21A47BB2900C73D0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B44CADA31A47BB2900C73D0D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -112,6 +118,10 @@
 		4A3182751A5039C6007B57D3 /* Post */ = {
 			isa = PBXGroup;
 			children = (
+				B43B0ECF1A608485003B2233 /* PostTVcell.h */,
+				B43B0ED01A608485003B2233 /* PostTVcell.m */,
+				B43B0ED11A608485003B2233 /* PostCellManager.h */,
+				B43B0ED21A608485003B2233 /* PostCellManager.m */,
 				4A31826A1A4FB56B007B57D3 /* PostTableViewController.h */,
 				4A31826B1A4FB56B007B57D3 /* PostTableViewController.m */,
 				4A4158B01A52EDE1005B58B5 /* AddPostViewController.h */,
@@ -356,7 +366,9 @@
 				B44CADA71A47BB2900C73D0D /* AppDelegate.m in Sources */,
 				4ABB8F691A48034500CF816F /* customTextField.m in Sources */,
 				B44CADA41A47BB2900C73D0D /* main.m in Sources */,
+				B43B0ED31A608485003B2233 /* PostTVcell.m in Sources */,
 				4A4158B51A530394005B58B5 /* PostInfo.m in Sources */,
+				B43B0ED41A608485003B2233 /* PostCellManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
