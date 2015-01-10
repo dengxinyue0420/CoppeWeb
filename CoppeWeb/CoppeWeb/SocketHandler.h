@@ -18,4 +18,5 @@ extern NSOutputStream *outputstream;
 
 -(void) initNetworkConnection;
 -(void) postNotification:(NSString*) notification;
+
 @end

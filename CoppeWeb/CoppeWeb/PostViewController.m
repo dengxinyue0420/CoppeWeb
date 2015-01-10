@@ -1,35 +1,38 @@
 //
-//  PostTableViewController.m
+//  PostViewController.m
 //  CoppeWeb
 //
-//  Created by Xinyue Deng on 12/28/14.
-//  Copyright (c) 2014 Yicheng Wang. All rights reserved.
+//  Created by Xinyue Deng on 1/10/15.
+//  Copyright (c) 2015 Yicheng Wang. All rights reserved.
 //
 
-#import "PostTableViewController.h"
+#import "PostViewController.h"
 #import "AppDelegate.h"
 #import "MyPostInfo.h"
 #import "NSDate+TimeTools.h"
 #import "PostInfo.h"
 
-
-@interface PostTableViewController ()
+@interface PostViewController ()
 
 @property NSArray *posts;
 @property UIRefreshControl *refreshControl;
 
 @end
 
-@implementation PostTableViewController
+@implementation PostViewController
 
 @synthesize managedObjectContext;
+@synthesize tableView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [super viewDidLoad];
     [self fetchNewPost];
     self.refreshControl = [[UIRefreshControl alloc] init];
-    [self.refreshControl addTarget:self action:@selector(fetchNewPost) forControlEvents:UIControlEventValueChanged];
-    self.tableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
+    [self.refreshControl addTarget:self action:@selector(refreshData:) forControlEvents:UIControlEventValueChanged];
+    self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull to Refresh"];
+    [self.tableView addSubview:self.refreshControl];
+//    self.tableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -43,13 +46,13 @@
                                              selector:@selector(receivedNotification:)
                                                  name:@"fetch_data_completed"
                                                object:nil];
+    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 -(IBAction)unwindToPost:(UIStoryboardSegue *)segue{
     
 }
@@ -89,7 +92,6 @@
     NSString *msg = [NSString stringWithFormat:@"{\"Target Action\":\"Pull Posts\",\"AttributeName\":\"All\",\"SortingMethod\":\"CreateDate\",\"Interval\":\"[%@,%@]\"}",lastWeek,currentTime];
     NSData *data = [[NSData alloc]initWithData:[msg dataUsingEncoding:NSASCIIStringEncoding]];
     [outputstream write:[data bytes] maxLength:[data length]];
-    [self.refreshControl endRefreshing];
 }
 
 -(void) fetchFromCoreData{
@@ -111,41 +113,51 @@
         self.posts = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
         NSLog(@"%d",[self.posts count]);
         [self.tableView reloadData];
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"MMM d, h:mm a"];
+        NSString *lastUpdated = [NSString stringWithFormat:@"Last updated on %@",[formatter stringFromDate:[NSDate date]]];
+        [self.refreshControl endRefreshing];
+        self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:lastUpdated];
+
     }
 }
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+-(void) refreshData:(UIRefreshControl *) refresh{
+    refresh.attributedTitle = [[NSAttributedString alloc] initWithString:@"Refreshing data..."];
+    [self fetchNewPost];
 }
-*/
+/*
+ // Override to support conditional editing of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+ // Return NO if you do not want the specified item to be editable.
+ return YES;
+ }
+ */
 
 /*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
+ // Override to support editing the table view.
+ - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+ if (editingStyle == UITableViewCellEditingStyleDelete) {
+ // Delete the row from the data source
+ [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+ } else if (editingStyle == UITableViewCellEditingStyleInsert) {
+ // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+ }
+ }
+ */
 
 /*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
+ // Override to support rearranging the table view.
+ - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
+ }
+ */
 
 /*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
+ // Override to support conditional rearranging of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
+ // Return NO if you do not want the item to be re-orderable.
+ return YES;
+ }
+ */
 
 /*
 #pragma mark - Navigation

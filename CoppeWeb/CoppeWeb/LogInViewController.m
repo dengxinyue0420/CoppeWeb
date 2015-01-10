@@ -9,7 +9,7 @@
 #import "LogInViewController.h"
 #import "customTextField.h"
 #import "SocketHandler.h"
-#import "PostTableViewController.h"
+#import "PostViewController.h"
 
 @interface LogInViewController ()
 
@@ -76,7 +76,7 @@
     if([[segue identifier]isEqualToString:@"showPost"]){
         UITabBarController *tabBarController = [segue destinationViewController];
         UINavigationController *navigationController = [tabBarController.viewControllers objectAtIndex:0];
-        PostTableViewController *postController = (PostTableViewController*)navigationController.topViewController;
+        PostViewController *postController = (PostViewController*)navigationController.topViewController;
         postController.managedObjectContext = self.managedObjectContext;
     }
 }
