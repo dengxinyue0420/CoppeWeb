@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4A31826C1A4FB56B007B57D3 /* PostTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A31826B1A4FB56B007B57D3 /* PostTableViewController.m */; };
 		4A4158B21A52EDE1005B58B5 /* AddPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A4158B11A52EDE1005B58B5 /* AddPostViewController.m */; };
 		4A4158B51A530394005B58B5 /* PostInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A4158B41A530394005B58B5 /* PostInfo.m */; };
 		4A7C1A3E1A4E5120006551AB /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A7C1A3D1A4E5120006551AB /* SignUpViewController.m */; };
 		4A7E63461A51A77B00FEA62F /* MyPostInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A7E63451A51A77B00FEA62F /* MyPostInfo.m */; };
+		4AA200D61A617EC800488A32 /* PostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA200D51A617EC800488A32 /* PostViewController.m */; };
 		4ABB8F661A47E3B300CF816F /* LogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ABB8F651A47E3B300CF816F /* LogInViewController.m */; };
 		4ABB8F691A48034500CF816F /* customTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ABB8F681A48034500CF816F /* customTextField.m */; };
 		4ADF386E1A4F08190012B423 /* SocketHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ADF386D1A4F08190012B423 /* SocketHandler.m */; };
@@ -42,8 +42,6 @@
 /* Begin PBXFileReference section */
 		035FB0966C38BA99A530C9D0 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		27FB0FEE0DA3CC655F20DDE0 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		4A31826A1A4FB56B007B57D3 /* PostTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostTableViewController.h; sourceTree = "<group>"; };
-		4A31826B1A4FB56B007B57D3 /* PostTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostTableViewController.m; sourceTree = "<group>"; };
 		4A4158B01A52EDE1005B58B5 /* AddPostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddPostViewController.h; sourceTree = "<group>"; };
 		4A4158B11A52EDE1005B58B5 /* AddPostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPostViewController.m; sourceTree = "<group>"; };
 		4A4158B31A530394005B58B5 /* PostInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostInfo.h; sourceTree = "<group>"; };
@@ -52,6 +50,8 @@
 		4A7C1A3D1A4E5120006551AB /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
 		4A7E63441A51A77B00FEA62F /* MyPostInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPostInfo.h; sourceTree = "<group>"; };
 		4A7E63451A51A77B00FEA62F /* MyPostInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPostInfo.m; sourceTree = "<group>"; };
+		4AA200D41A617EC800488A32 /* PostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostViewController.h; sourceTree = "<group>"; };
+		4AA200D51A617EC800488A32 /* PostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostViewController.m; sourceTree = "<group>"; };
 		4ABB8F641A47E3B300CF816F /* LogInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogInViewController.h; sourceTree = "<group>"; };
 		4ABB8F651A47E3B300CF816F /* LogInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogInViewController.m; sourceTree = "<group>"; };
 		4ABB8F671A48034500CF816F /* customTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = customTextField.h; sourceTree = "<group>"; };
@@ -113,6 +113,8 @@
 			children = (
 				4ABB8F641A47E3B300CF816F /* LogInViewController.h */,
 				4ABB8F651A47E3B300CF816F /* LogInViewController.m */,
+				4A7C1A3C1A4E5120006551AB /* SignUpViewController.h */,
+				4A7C1A3D1A4E5120006551AB /* SignUpViewController.m */,
 			);
 			name = LogIn_signUp;
 			sourceTree = "<group>";
@@ -124,10 +126,10 @@
 				B43B0ED01A608485003B2233 /* PostTVcell.m */,
 				B43B0ED11A608485003B2233 /* PostCellManager.h */,
 				B43B0ED21A608485003B2233 /* PostCellManager.m */,
-				4A31826A1A4FB56B007B57D3 /* PostTableViewController.h */,
-				4A31826B1A4FB56B007B57D3 /* PostTableViewController.m */,
 				4A4158B01A52EDE1005B58B5 /* AddPostViewController.h */,
 				4A4158B11A52EDE1005B58B5 /* AddPostViewController.m */,
+				4AA200D41A617EC800488A32 /* PostViewController.h */,
+				4AA200D51A617EC800488A32 /* PostViewController.m */,
 			);
 			name = Post;
 			sourceTree = "<group>";
@@ -190,8 +192,6 @@
 				B44CADAE1A47BB2900C73D0D /* Main.storyboard */,
 				B4F952FD1A52830A00C49E5E /* NSDate+TimeTools.h */,
 				B4F952FE1A52830A00C49E5E /* NSDate+TimeTools.m */,
-				4A7C1A3C1A4E5120006551AB /* SignUpViewController.h */,
-				4A7C1A3D1A4E5120006551AB /* SignUpViewController.m */,
 				B44CADB11A47BB2900C73D0D /* Images.xcassets */,
 				B44CADB31A47BB2900C73D0D /* LaunchScreen.xib */,
 				B44CADA81A47BB2900C73D0D /* CoppeWeb.xcdatamodeld */,
@@ -371,7 +371,6 @@
 				4A7E63461A51A77B00FEA62F /* MyPostInfo.m in Sources */,
 				4ABB8F661A47E3B300CF816F /* LogInViewController.m in Sources */,
 				B4F952FF1A52830A00C49E5E /* NSDate+TimeTools.m in Sources */,
-				4A31826C1A4FB56B007B57D3 /* PostTableViewController.m in Sources */,
 				4A4158B21A52EDE1005B58B5 /* AddPostViewController.m in Sources */,
 				B44CADAA1A47BB2900C73D0D /* CoppeWeb.xcdatamodeld in Sources */,
 				4A7C1A3E1A4E5120006551AB /* SignUpViewController.m in Sources */,
@@ -382,6 +381,7 @@
 				B43B0ED31A608485003B2233 /* PostTVcell.m in Sources */,
 				4A4158B51A530394005B58B5 /* PostInfo.m in Sources */,
 				B43B0ED41A608485003B2233 /* PostCellManager.m in Sources */,
+				4AA200D61A617EC800488A32 /* PostViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
