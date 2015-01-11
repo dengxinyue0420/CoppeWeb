@@ -68,10 +68,21 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"postCell" forIndexPath:indexPath];
+    PostTVcell *cell = [tableView dequeueReusableCellWithIdentifier:@"postCell" forIndexPath:indexPath];
     PostInfo *info = [self.posts objectAtIndex:indexPath.row];
-    cell.textLabel.text = info.name;
+    cell.imageView.image = [UIImage imageNamed:@"dsa.jpg"];
+    PostCellManager *PCmanager = [[PostCellManager alloc]init];
+    [PCmanager addName:info.name toCell:cell];
+    [PCmanager addTitle:@"I'm here" toCell:cell];
+    [PCmanager addContent:@"test ad awdjkawdnajdawdawndawndawndwadwandjandjwandjhwadawdwadwad asd aweg awd awd asd ef aef awd " toCell:cell];
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    PostInfo *info = [self.posts objectAtIndex:indexPath.row];
+    PostCellManager *PCmanager = [[PostCellManager alloc]init];
+    CGFloat height =[PCmanager cellHeightWithTitle:@"I'm here" andContent:@"test ad awdjkawdnajdawdawndawndawndwadwandjandjwandjhwadawdwadwad asd aweg awd awd asd ef aef awd "];
+    return height;
 }
 
 - (NSString*) getLastweek:(NSDate*) currentTime{

@@ -22,12 +22,12 @@ typedef enum {
 
 @interface PostCellManager : NSObject
 
-- (void)addName: (NSString *)name toCell: (UITableViewCell *)cell;
+- (void)addName: (NSString *)name toCell: (UITableViewCell *)cell; // Add UserName
 
-- (void)addTitle: (NSString *)Title toCell: (UITableViewCell *)cell;
+- (void)addTitle: (NSString *)Title toCell: (UITableViewCell *)cell; // Add Post Title （Note: This method should be called before addContent gets called.)
 
-- (void)addContent: (NSString*)Content toCell: (UITableViewCell *)cell;
+- (void)addContent: (NSString*)Content toCell: (UITableViewCell *)cell;  // Add Post Content
 
-- (CGFloat)cellHeightWithTitle: (NSString *)Title andContent: (NSString *)Content;
+- (CGFloat)cellHeightWithTitle: (NSString *)Title andContent: (NSString *)Content; // Calculate the height needed for a cell
 
 @end

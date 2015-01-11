@@ -17,6 +17,7 @@
 		4ADF386E1A4F08190012B423 /* SocketHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ADF386D1A4F08190012B423 /* SocketHandler.m */; };
 		B43B0ED31A608485003B2233 /* PostTVcell.m in Sources */ = {isa = PBXBuildFile; fileRef = B43B0ED01A608485003B2233 /* PostTVcell.m */; };
 		B43B0ED41A608485003B2233 /* PostCellManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B43B0ED21A608485003B2233 /* PostCellManager.m */; };
+		B44864251A60B45F0025E8EA /* dsa.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B44864241A60B45F0025E8EA /* dsa.jpg */; };
 		B44CADA41A47BB2900C73D0D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B44CADA31A47BB2900C73D0D /* main.m */; };
 		B44CADA71A47BB2900C73D0D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B44CADA61A47BB2900C73D0D /* AppDelegate.m */; };
 		B44CADAA1A47BB2900C73D0D /* CoppeWeb.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B44CADA81A47BB2900C73D0D /* CoppeWeb.xcdatamodeld */; };
@@ -61,6 +62,7 @@
 		B43B0ED01A608485003B2233 /* PostTVcell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostTVcell.m; sourceTree = "<group>"; };
 		B43B0ED11A608485003B2233 /* PostCellManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostCellManager.h; sourceTree = "<group>"; };
 		B43B0ED21A608485003B2233 /* PostCellManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostCellManager.m; sourceTree = "<group>"; };
+		B44864241A60B45F0025E8EA /* dsa.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dsa.jpg; sourceTree = "<group>"; };
 		B44CAD9E1A47BB2900C73D0D /* CoppeWeb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoppeWeb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B44CADA21A47BB2900C73D0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B44CADA31A47BB2900C73D0D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -149,14 +151,24 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B44864231A60B4380025E8EA /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				B44864241A60B45F0025E8EA /* dsa.jpg */,
+			);
+			name = Test;
+			path = CoppeWeb;
+			sourceTree = "<group>";
+		};
 		B44CAD951A47BB2900C73D0D = {
 			isa = PBXGroup;
 			children = (
 				B44CADA01A47BB2900C73D0D /* CoppeWeb */,
 				B44CADBD1A47BB2900C73D0D /* CoppeWebTests */,
 				B44CAD9F1A47BB2900C73D0D /* Products */,
-				3F3B14D4E24C4AF5D59D7ED3 /* Pods */,
 				5B7BFD2620A6D95C4F31C260 /* Frameworks */,
+				3F3B14D4E24C4AF5D59D7ED3 /* Pods */,
+				B44864231A60B4380025E8EA /* Test */,
 			);
 			sourceTree = "<group>";
 		};
@@ -304,6 +316,7 @@
 			files = (
 				B44CADB01A47BB2900C73D0D /* Main.storyboard in Resources */,
 				B44CADB51A47BB2900C73D0D /* LaunchScreen.xib in Resources */,
+				B44864251A60B45F0025E8EA /* dsa.jpg in Resources */,
 				B44CADB21A47BB2900C73D0D /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -47,6 +47,7 @@ float TitleHeight;
     label.lineBreakMode = NSLineBreakByWordWrapping;
     CGRect labelsize = [label textRectForBounds:CGRectMake(0, 0, View_Width-Profile_Position_Offest, CGFLOAT_MAX) limitedToNumberOfLines:9999];
     label.frame = CGRectMake(Profile_Position_Offest, Profile_Position_Offest+Profile_frame+Image_Title_Vertical+Title_Content_Vertical+TitleHeight, labelsize.size.width,labelsize.size.height);
+    NSLog(@"%f",TitleHeight);
     [cell addSubview:label];
 }
 
