@@ -309,50 +309,6 @@
             </objects>
             <point key="canvasLocation" x="2430" y="-409.5"/>
         </scene>
-        <!--Post-->
-        <scene sceneID="ZDh-E2-yPH">
-            <objects>
-                <tableViewController storyboardIdentifier="post" useStoryboardIdentifierAsRestorationIdentifier="YES" id="MIP-kU-ipB" userLabel="Post" customClass="PostTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="es4-sY-gwI">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <tabBar key="tableHeaderView" contentMode="scaleToFill" id="N6t-Nr-rY6">
-                            <rect key="frame" x="0.0" y="64" width="600" height="49"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            <items>
-                                <tabBarItem systemItem="favorites" id="Bpd-UQ-AKW"/>
-                                <tabBarItem systemItem="more" id="f2N-Oq-eey"/>
-                            </items>
-                        </tabBar>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="postCell" id="SjE-5O-Yai" customClass="PostTVcell">
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SjE-5O-Yai" id="ylq-er-33Z">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="MIP-kU-ipB" id="wg0-bq-4pC"/>
-                            <outlet property="delegate" destination="MIP-kU-ipB" id="eeI-HO-Ptv"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Post" id="tg0-R4-Kgk">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="x2M-aO-gkB">
-                            <connections>
-                                <segue destination="YxQ-uW-lZn" kind="presentation" id="wGP-dY-cls"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="uku-pJ-46Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2986.5" y="355.5"/>
-        </scene>
-=======
->>>>>>> 619f743fda7a5d9c28a3dd6f7b6f0e03633afc1d
         <!--New Post-->
         <scene sceneID="j0H-HO-QEm">
             <objects>
