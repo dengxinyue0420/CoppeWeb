@@ -26,7 +26,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [super viewDidLoad];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
     [self fetchNewPost];
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(refreshData:) forControlEvents:UIControlEventValueChanged];
@@ -66,25 +67,23 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return [self.posts count];
+    return 10;
 }
 
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    PostTVcell *cell = [tableView dequeueReusableCellWithIdentifier:@"postCell" forIndexPath:indexPath];
-    PostInfo *info = [self.posts objectAtIndex:indexPath.row];
+- (PostTVcell *)tableView:(UITableView *)table cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    PostTVcell *cell = [table dequeueReusableCellWithIdentifier:@"postCell"];
     cell.imageView.image = [UIImage imageNamed:@"dsa.jpg"];
     PostCellManager *PCmanager = [[PostCellManager alloc]init];
-    [PCmanager addName:info.name toCell:cell];
-    [PCmanager addTitle:@"I'm here" toCell:cell];
-    [PCmanager addContent:@"test ad awdjkawdnajdawdawndawndawndwadwandjandjwandjhwadawdwadwad asd aweg awd awd asd ef aef awd " toCell:cell];
+    [PCmanager addName:@"I'm here" toCell:cell];
+    [PCmanager addTitle:@"WER" toCell:cell];
+    [PCmanager addContent:@"test ad awdjkawdnajdawdawndawndawndwa dwandjandjwandj hwad awdwad wad asd aweg awd awd asd ef aef awd " toCell:cell];
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    PostInfo *info = [self.posts objectAtIndex:indexPath.row];
     PostCellManager *PCmanager = [[PostCellManager alloc]init];
-    CGFloat height =[PCmanager cellHeightWithTitle:@"I'm here" andContent:@"test ad awdjkawdnajdawdawndawndawndwadwandjandjwandjhwadawdwadwad asd aweg awd awd asd ef aef awd "];
+    CGFloat height =[PCmanager cellHeightWithTitle:@"I'm here" andContent:@"test ad awdjkawdnajdawdawndawndawndwa dwandjandjwandj hwad awdwad wad asd aweg awd awd asd ef aef awd "];
     return height;
 }
 
