@@ -179,7 +179,8 @@ CGFloat LayerHeight;
     readlabel.text = [NSString stringWithFormat:@"Read"];
     readlabel.lineBreakMode = NSLineBreakByWordWrapping;
     CGRect readsize = [readlabel textRectForBounds:CGRectMake(0, 0, Read_Max_Frame, CGFLOAT_MAX) limitedToNumberOfLines:1];
-    readlabel.frame = CGRectMake(layerbutton.frame.size.width/7-readlabel.frame.size.width/2, Image_Frame_Offset+titlelabel.frame.size.height+Title_Name_Offset+namelabel.frame.size.height+Content_Name_Offset+contentlabel.frame.size.height+Content_Buttom_Offset+Line_Buttom_Offset, readsize.size.width, readsize.size.height);
+    readlabel.frame = CGRectMake(layerbutton.frame.size.width/7, Image_Frame_Offset+titlelabel.frame.size.height+Title_Name_Offset+namelabel.frame.size.height+Content_Name_Offset+contentlabel.frame.size.height+Content_Buttom_Offset+Line_Buttom_Offset, readsize.size.width, readsize.size.height);
+    NSLog(@"%f",readlabel.frame.origin.x);
 }
 
 - (void)addReadNum:(NSString *)num{ // add read num

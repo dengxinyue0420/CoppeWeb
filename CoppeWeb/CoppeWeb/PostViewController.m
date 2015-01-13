@@ -78,7 +78,7 @@
                   Title:@"Build a chat app"
                    Name:@"YichengWang"
                    Date:@"2014/11/12"
-                Content:@"hey everyone, I want to build a chat app that I can use to hook up with girls, especially Eapha and Hailie. So I need a way to Locate them. Who want to develop this app with me? Note: I have some surprise for you. Oh Yeah I think tHIS IS A GREAt idea. test test test test test test."
+                Content:@"one word test."
                    read:@"10000"
                    like:@"10000"
                 comment:@"10000"];
@@ -87,7 +87,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return [PostTVCell HeightForCellWithContent:@"hey everyone, I want to build a chat app that I can use to hook up with girls, especially Eapha and Hailie. So I need a way to Locate them. Who want to develop this app with me? Note: I have some surprise for you. Oh Yeah I think tHIS IS A GREAt idea. test test test test test test." andTitle:@"Build a chat app"];
+    return [PostTVCell HeightForCellWithContent:@"one word test." andTitle:@"Build a chat app"];
 }
 
 
