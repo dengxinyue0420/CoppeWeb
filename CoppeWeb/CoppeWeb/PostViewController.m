@@ -73,9 +73,6 @@
 
 - (PostTVCell *)tableView:(UITableView *)table cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     PostTVCell *cell = [table dequeueReusableCellWithIdentifier:@"postCell"];
-    if(cell){
-        cell = [[PostTVCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"postCell"];
-    }
     [cell initwithColor:UIColorFromRGB(0xf6dbde)
                   Image:[UIImage imageNamed:@"dsa.jpg"]
                   Title:@"Build a chat app"
