@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PostTVcell.h"
+#import "PostTVCell.h"
+
 
 @interface PostViewController : UIViewController <UITableViewDelegate,UITableViewDataSource>
 

@@ -71,21 +71,18 @@
 }
 
 
-- (PostTVcell *)tableView:(UITableView *)table cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    PostTVcell *cell = [table dequeueReusableCellWithIdentifier:@"postCell"];
-    cell.imageView.image = [UIImage imageNamed:@"dsa.jpg"];
-    PostCellManager *PCmanager = [[PostCellManager alloc]init];
-    [PCmanager addName:@"I'm here" toCell:cell];
-    [PCmanager addTitle:@"WER" toCell:cell];
-    [PCmanager addContent:@"test ad awdjkawdnajdawdawndawndawndwa dwandjandjwandj hwad awdwad wad asd aweg awd awd asd ef aef awd " toCell:cell];
+- (PostTVCell *)tableView:(UITableView *)table cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    PostTVCell *cell = [table dequeueReusableCellWithIdentifier:@"postCell"];
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    PostCellManager *PCmanager = [[PostCellManager alloc]init];
-    CGFloat height =[PCmanager cellHeightWithTitle:@"I'm here" andContent:@"test ad awdjkawdnajdawdawndawndawndwa dwandjandjwandj hwad awdwad wad asd aweg awd awd asd ef aef awd "];
-    return height;
+    return 200;
 }
+
+
+
+
 
 - (NSString*) getLastweek:(NSDate*) currentTime{
     NSCalendar *cal = [NSCalendar currentCalendar];
