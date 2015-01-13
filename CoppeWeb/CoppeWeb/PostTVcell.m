@@ -21,7 +21,7 @@ NSString *Title_Font = @"HelveticaNeue-CondensedBold";
 - (id)initWithCoder:(NSCoder *)aDecoder{
     self = [super initWithCoder:aDecoder];
     self.All_Screen_Width = [[UIScreen mainScreen]bounds].size.width;
-    [self initLayerButtonWithColor:UIColorFromRGB(0xC98282)];
+    [self initLayerButtonWithColor:UIColorFromRGB(0xf6dbde)];
     [self initImageButtonWithImage:[UIImage imageNamed:@"dsa.jpg"]];
     [self addTitle:@"Build a chat app"];
     [self addUnderLineToNameLabel];

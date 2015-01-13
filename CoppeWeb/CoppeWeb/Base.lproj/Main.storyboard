@@ -510,7 +510,6 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="638" id="1UE-aK-xeg"/>
-                                    <constraint firstAttribute="width" constant="400" id="xJs-ze-cyo"/>
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="postCell" id="dKe-R5-a0V" customClass="PostTVCell">
@@ -523,13 +522,11 @@
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="1UE-aK-xeg"/>
-                                        <exclude reference="xJs-ze-cyo"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact">
                                     <mask key="constraints">
                                         <include reference="1UE-aK-xeg"/>
-                                        <include reference="xJs-ze-cyo"/>
                                     </mask>
                                 </variation>
                                 <connections>
