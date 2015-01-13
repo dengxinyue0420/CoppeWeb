@@ -504,31 +504,28 @@
                                     </mask>
                                 </variation>
                             </tabBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="3OH-AX-POC">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="3OH-AX-POC">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="638" id="NGi-s8-oEF"/>
-                                    <constraint firstAttribute="width" constant="400" id="crr-fm-VeA" userLabel="Width - (390) - Table View"/>
+                                    <constraint firstAttribute="height" constant="638" id="1UE-aK-xeg"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="postCell" id="sJy-51-n98">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="postCell" id="dKe-R5-a0V" customClass="PostTVCell">
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sJy-51-n98" id="oyP-ZV-u6S">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dKe-R5-a0V" id="Ik3-2B-tIQ">
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="NGi-s8-oEF"/>
-                                        <exclude reference="crr-fm-VeA"/>
+                                        <exclude reference="1UE-aK-xeg"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact">
                                     <mask key="constraints">
-                                        <include reference="NGi-s8-oEF"/>
-                                        <include reference="crr-fm-VeA"/>
+                                        <include reference="1UE-aK-xeg"/>
                                     </mask>
                                 </variation>
                                 <connections>
@@ -539,10 +536,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="jTd-Y2-z5U" secondAttribute="centerX" id="8fa-ka-yix"/>
-                            <constraint firstItem="3OH-AX-POC" firstAttribute="top" secondItem="jTd-Y2-z5U" secondAttribute="bottom" id="Obl-vW-ON4"/>
-                            <constraint firstItem="jTd-Y2-z5U" firstAttribute="top" secondItem="DmX-8g-vnI" secondAttribute="bottom" id="Wsr-k2-YRo"/>
-                            <constraint firstAttribute="centerX" secondItem="3OH-AX-POC" secondAttribute="centerX" id="ka9-cU-TIU"/>
+                            <constraint firstItem="3OH-AX-POC" firstAttribute="bottom" secondItem="m2V-0S-dPd" secondAttribute="top" id="OMJ-EJ-3rw"/>
+                            <constraint firstItem="3OH-AX-POC" firstAttribute="top" secondItem="jTd-Y2-z5U" secondAttribute="bottom" id="aPM-gW-vHh"/>
+                            <constraint firstItem="3OH-AX-POC" firstAttribute="leading" secondItem="jNj-4s-8ke" secondAttribute="leading" id="cL2-Kc-h78"/>
+                            <constraint firstItem="3OH-AX-POC" firstAttribute="trailing" secondItem="jTd-Y2-z5U" secondAttribute="trailing" id="iNC-qO-C2A"/>
+                            <constraint firstItem="3OH-AX-POC" firstAttribute="leading" secondItem="jTd-Y2-z5U" secondAttribute="leading" id="wmt-Xf-Mdo"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
@@ -550,10 +548,11 @@
                                 <exclude reference="3OH-AX-POC"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="8fa-ka-yix"/>
-                                <exclude reference="Wsr-k2-YRo"/>
-                                <exclude reference="Obl-vW-ON4"/>
-                                <exclude reference="ka9-cU-TIU"/>
+                                <exclude reference="OMJ-EJ-3rw"/>
+                                <exclude reference="aPM-gW-vHh"/>
+                                <exclude reference="cL2-Kc-h78"/>
+                                <exclude reference="iNC-qO-C2A"/>
+                                <exclude reference="wmt-Xf-Mdo"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -562,10 +561,11 @@
                                 <include reference="3OH-AX-POC"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="8fa-ka-yix"/>
-                                <include reference="Wsr-k2-YRo"/>
-                                <include reference="Obl-vW-ON4"/>
-                                <include reference="ka9-cU-TIU"/>
+                                <include reference="OMJ-EJ-3rw"/>
+                                <include reference="aPM-gW-vHh"/>
+                                <include reference="cL2-Kc-h78"/>
+                                <include reference="iNC-qO-C2A"/>
+                                <include reference="wmt-Xf-Mdo"/>
                             </mask>
                         </variation>
                     </view>
