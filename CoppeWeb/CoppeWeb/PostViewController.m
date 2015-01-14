@@ -28,12 +28,12 @@
     [super viewDidLoad];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 130, 0);
     [self fetchNewPost];
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(refreshData:) forControlEvents:UIControlEventValueChanged];
     self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull to Refresh"];
     [self.tableView addSubview:self.refreshControl];
-//    self.tableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
