@@ -73,12 +73,23 @@
 
 - (PostTVCell *)tableView:(UITableView *)table cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     PostTVCell *cell = [table dequeueReusableCellWithIdentifier:@"postCell"];
-    [cell initwithColor:UIColorFromRGB(0xf6dbde)
+    NSArray *colorarray = @[UIColorFromRGB(0xf6dbde),UIColorFromRGB(0xBAE4F0),UIColorFromRGB(0xA9D26A)];
+    UIColor *color = [[UIColor alloc]init];
+    if(indexPath.row%3==0){
+        color = colorarray[0];
+    }
+    if(indexPath.row%3==1){
+        color = colorarray[1];
+    }
+    if(indexPath.row%3==2){
+        color = colorarray[2];
+    }
+    [cell initwithColor:color
                   Image:[UIImage imageNamed:@"dsa.jpg"]
-                  Title:@"Build a chat app"
+                  Title:@"I finally made it?"
                    Name:@"YichengWang"
-                   Date:@"2014/11/12"
-                Content:@"one word test."
+                   Date:@"4:20PM"
+                Content:@"Well This cell contains about 13 elements for which I calculated the precise size by making different class methods. Everyone can read and comment on it. I configured this cell with pop-animation triggered by one tap or touch. (This tests long post content.)"
                    read:@"10000"
                    like:@"10000"
                 comment:@"10000"];
@@ -87,7 +98,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return [PostTVCell HeightForCellWithContent:@"one word test." andTitle:@"Build a chat app"];
+    return [PostTVCell HeightForCellWithContent:@"Well This cell contains about 13 elements for which I calculated the precise size by making different class methods. Everyone can read and comment on it. I configured this cell with pop-animation triggered by one tap or touch. (This tests long post content.)" andTitle:@"Build a chat app"];
 }
 
 

@@ -1,6 +1,6 @@
 //
 //  PostTVCell.m
-//  PostCellStuff
+//  CoppeWeb
 //
 //  Created by Yicheng Wang on 1/12/15.
 //  Copyright (c) 2015 Yicheng Wang. All rights reserved.
@@ -59,12 +59,6 @@ CGFloat LayerHeight;
     [layerbutton addSubview:commentlabel];
     CommentNum = [[UILabel alloc]init];
     [layerbutton addSubview:CommentNum];
-    return self;
-}
-
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    self.All_Screen_Width = [[UIScreen mainScreen]bounds].size.width;
     return self;
 }
 
@@ -149,7 +143,7 @@ CGFloat LayerHeight;
     datelabel.lineBreakMode = NSLineBreakByWordWrapping;
     CGRect contentsize = [contentlabel textRectForBounds:CGRectMake(0, 0, self.All_Screen_Width-Layer_Horizontal_Offset-Layer_Horizontal_Offset-Image_Frame_Offset-Image_Frame_Offset, CGFLOAT_MAX) limitedToNumberOfLines:9999];
     contentlabel.frame = CGRectMake(Image_Frame_Offset, Image_Frame_Offset+titlelabel.frame.size.height+Title_Name_Offset+namelabel.frame.size.height+Content_Name_Offset, contentsize.size.width, contentsize.size.height);
-    [layerbutton addSubview:contentlabel];
+    [self addUnderLineToButtom];
 }
 
 - (void)addinterestlabel{ // add like label
@@ -180,7 +174,6 @@ CGFloat LayerHeight;
     readlabel.lineBreakMode = NSLineBreakByWordWrapping;
     CGRect readsize = [readlabel textRectForBounds:CGRectMake(0, 0, Read_Max_Frame, CGFLOAT_MAX) limitedToNumberOfLines:1];
     readlabel.frame = CGRectMake(layerbutton.frame.size.width/7, Image_Frame_Offset+titlelabel.frame.size.height+Title_Name_Offset+namelabel.frame.size.height+Content_Name_Offset+contentlabel.frame.size.height+Content_Buttom_Offset+Line_Buttom_Offset, readsize.size.width, readsize.size.height);
-    NSLog(@"%f",readlabel.frame.origin.x);
 }
 
 - (void)addReadNum:(NSString *)num{ // add read num
@@ -246,7 +239,7 @@ CGFloat LayerHeight;
     [layerbutton addSubview:underline];
 }
 
-+ (CGFloat)HeightForCellWithContent:(NSString *)content andTitle:(NSString *)title{
++ (CGFloat)HeightForCellWithContent:(NSString *)content andTitle:(NSString *)title{ // get the estimated height of the cell
     UILabel *test1 = [[UILabel alloc]init];
     test1.font = [UIFont fontWithName:@"Arial-BoldMT" size:14.0f];
     test1.text = content;
