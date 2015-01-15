@@ -31,7 +31,9 @@ typedef enum {
     Date_Frame_Offset = 5,
     Date_Title_Offset = 25,
     Content_Name_Offset = 5,
-    Content_Buttom_Offset = 15,
+    Content_Image_Offset = 10,
+    Content_Buttom_Offset = 15, // actually Image_Button_Offset.
+    ButtomImages_Frame = 100,
     Line_Buttom_Offset = 3,
     Interest_Max_Frame = 30,
     LikeNum_Max_Frame = 50,
@@ -45,13 +47,27 @@ typedef enum {
 
 
 @interface PostTVCell : UITableViewCell
-
 @property (nonatomic)CGFloat All_Screen_Width;
+//////////////////////////////////////////////
+@property (nonatomic,strong)UIButton *layerbutton;
+@property (nonatomic,strong)UIButton *imagebutton;
+@property (nonatomic,strong)UILabel *titlelabel;
+@property (nonatomic,strong)UILabel *namelabel;
+@property (nonatomic,strong)UILabel *datelabel;
+@property (nonatomic,strong)UILabel *contentlabel;
+@property (nonatomic,strong)UILabel *interestlabel;
+@property (nonatomic,strong)UILabel *likenum;
+@property (nonatomic,strong)UILabel *readlabel;
+@property (nonatomic,strong)UILabel *readnum;
+@property (nonatomic,strong)UILabel *commentlabel;
+@property (nonatomic,strong)UILabel *CommentNum;
+@property (nonatomic,strong)UIImageView *image1;
+@property (nonatomic,strong)UIImageView *image2;
+@property (nonatomic,strong)UIImageView *image3;
 
-- (void)initwithColor:(UIColor *)color Image:(UIImage *)image Title:(NSString *)title Name:(NSString *)name Date:(NSString *)date Content:(NSString *)content read:(NSString *)read like:(NSString *)like comment:(NSString *)comment;
-
+- (void)initwithColor:(UIColor *)color Image:(UIImage *)image Title:(NSString *)title Name:(NSString *)name Date:(NSString *)date Content:(NSString *)content read:(NSString *)read like:(NSString *)like comment:(NSString *)comment ButtomImages:(NSArray *)imagearrary;
 + (CGFloat)HeightForCellWithContent:(NSString *)content andTitle:(NSString *)title;
 
-
+- (void)addTitle:(NSString *)Title;
 
 @end

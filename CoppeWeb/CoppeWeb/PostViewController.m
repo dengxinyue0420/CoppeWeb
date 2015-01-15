@@ -19,6 +19,7 @@
 
 @end
 
+
 @implementation PostViewController
 
 @synthesize managedObjectContext;
@@ -67,13 +68,16 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return 10;
+    return  100;
 }
 
 
-- (PostTVCell *)tableView:(UITableView *)table cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    PostTVCell *cell = [table dequeueReusableCellWithIdentifier:@"postCell"];
-    NSArray *colorarray = @[UIColorFromRGB(0xf6dbde),UIColorFromRGB(0xBAE4F0),UIColorFromRGB(0xA9D26A)];
+- (UITableViewCell *)tableView:(UITableView *)table cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    PostTVCell *cell = [table dequeueReusableCellWithIdentifier:@"use"];
+    if(!cell){
+        cell = [[PostTVCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"use"];
+    }
+    NSArray *colorarray = @[UIColorFromRGB(0xf6dbde),UIColorFromRGB(0xdbeaf4),UIColorFromRGB(0xe4f4e5)];
     UIColor *color = [[UIColor alloc]init];
     if(indexPath.row%3==0){
         color = colorarray[0];
@@ -84,15 +88,17 @@
     if(indexPath.row%3==2){
         color = colorarray[2];
     }
+    NSArray *imagearray = @[[UIImage imageNamed:@"dsa.jpg"],[UIImage imageNamed:@"dsa.jpg"],[UIImage imageNamed:@"dsa.jpg"]];
     [cell initwithColor:color
                   Image:[UIImage imageNamed:@"dsa.jpg"]
                   Title:@"I finally made it?"
                    Name:@"YichengWang"
-                   Date:@"4:20PM"
+                   Date:@"4:30PM"
                 Content:@"Well This cell contains about 13 elements for which I calculated the precise size by making different class methods. Everyone can read and comment on it. I configured this cell with pop-animation triggered by one tap or touch. (This tests long post content.)"
-                   read:@"10000"
-                   like:@"10000"
-                comment:@"10000"];
+                   read:@"1000"
+                   like:@"1000"
+                comment:@"1000"
+           ButtomImages:imagearray];
     
     return cell;
 }
@@ -100,8 +106,6 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return [PostTVCell HeightForCellWithContent:@"Well This cell contains about 13 elements for which I calculated the precise size by making different class methods. Everyone can read and comment on it. I configured this cell with pop-animation triggered by one tap or touch. (This tests long post content.)" andTitle:@"Build a chat app"];
 }
-
-
 
 
 

@@ -23,7 +23,7 @@
 		B44CADB21A47BB2900C73D0D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B44CADB11A47BB2900C73D0D /* Images.xcassets */; };
 		B44CADB51A47BB2900C73D0D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B44CADB31A47BB2900C73D0D /* LaunchScreen.xib */; };
 		B44CADC11A47BB2900C73D0D /* CoppeWebTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B44CADC01A47BB2900C73D0D /* CoppeWebTests.m */; };
-		B471948D1A659AA200A1B9CB /* PostTVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B471948C1A659AA200A1B9CB /* PostTVCell.m */; };
+		B4BDCC641A66BE9C001E926F /* PostTVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B4BDCC631A66BE9C001E926F /* PostTVCell.m */; };
 		B4F952FF1A52830A00C49E5E /* NSDate+TimeTools.m in Sources */ = {isa = PBXBuildFile; fileRef = B4F952FE1A52830A00C49E5E /* NSDate+TimeTools.m */; };
 		C7D6F663EC7A763BA2211870 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 27FB0FEE0DA3CC655F20DDE0 /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -70,8 +70,8 @@
 		B44CADBA1A47BB2900C73D0D /* CoppeWebTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoppeWebTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B44CADBF1A47BB2900C73D0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B44CADC01A47BB2900C73D0D /* CoppeWebTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoppeWebTests.m; sourceTree = "<group>"; };
-		B471948B1A659AA200A1B9CB /* PostTVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostTVCell.h; sourceTree = "<group>"; };
-		B471948C1A659AA200A1B9CB /* PostTVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostTVCell.m; sourceTree = "<group>"; };
+		B4BDCC621A66BE9C001E926F /* PostTVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostTVCell.h; sourceTree = "<group>"; };
+		B4BDCC631A66BE9C001E926F /* PostTVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostTVCell.m; sourceTree = "<group>"; };
 		B4F952FD1A52830A00C49E5E /* NSDate+TimeTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+TimeTools.h"; sourceTree = "<group>"; };
 		B4F952FE1A52830A00C49E5E /* NSDate+TimeTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+TimeTools.m"; sourceTree = "<group>"; };
 		E61E4AA2F746276C1F90515A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -119,8 +119,8 @@
 		4A3182751A5039C6007B57D3 /* Post */ = {
 			isa = PBXGroup;
 			children = (
-				B471948B1A659AA200A1B9CB /* PostTVCell.h */,
-				B471948C1A659AA200A1B9CB /* PostTVCell.m */,
+				B4BDCC621A66BE9C001E926F /* PostTVCell.h */,
+				B4BDCC631A66BE9C001E926F /* PostTVCell.m */,
 				4A4158B01A52EDE1005B58B5 /* AddPostViewController.h */,
 				4A4158B11A52EDE1005B58B5 /* AddPostViewController.m */,
 				4AA200D41A617EC800488A32 /* PostViewController.h */,
@@ -366,7 +366,7 @@
 				4A7E63461A51A77B00FEA62F /* MyPostInfo.m in Sources */,
 				4ABB8F661A47E3B300CF816F /* LogInViewController.m in Sources */,
 				B4F952FF1A52830A00C49E5E /* NSDate+TimeTools.m in Sources */,
-				B471948D1A659AA200A1B9CB /* PostTVCell.m in Sources */,
+				B4BDCC641A66BE9C001E926F /* PostTVCell.m in Sources */,
 				4A4158B21A52EDE1005B58B5 /* AddPostViewController.m in Sources */,
 				B44CADAA1A47BB2900C73D0D /* CoppeWeb.xcdatamodeld in Sources */,
 				4A7C1A3E1A4E5120006551AB /* SignUpViewController.m in Sources */,
