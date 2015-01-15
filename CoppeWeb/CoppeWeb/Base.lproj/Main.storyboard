@@ -340,7 +340,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1D1-qz-K55" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="39x-M1-oFb" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4482" y="355.5"/>
+            <point key="canvasLocation" x="4566" y="840"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="fty-bs-KZW">
@@ -351,6 +351,7 @@
                         <viewControllerLayoutGuide type="bottom" id="kDk-M2-lod"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="VEO-er-EGm">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -496,7 +497,7 @@
                         <viewControllerLayoutGuide type="bottom" id="m2V-0S-dPd"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="jNj-4s-8ke">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NjK-cx-ADg">
@@ -527,14 +528,6 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="638" id="1UE-aK-xeg"/>
                                 </constraints>
-                                <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="postCell" id="dKe-R5-a0V" customClass="PostTVCell">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dKe-R5-a0V" id="Ik3-2B-tIQ">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="1UE-aK-xeg"/>
@@ -589,14 +582,14 @@
                                 <exclude reference="7si-RK-k91"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="12C-3P-6cb"/>
-                                <exclude reference="hvl-eP-GeQ"/>
-                                <exclude reference="iFa-bq-0ef"/>
-                                <exclude reference="tjK-jM-UzI"/>
                                 <exclude reference="Jky-XW-ced"/>
                                 <exclude reference="Qpf-St-wPa"/>
                                 <exclude reference="HTf-H7-wyr"/>
                                 <exclude reference="qyG-NE-PBX"/>
+                                <exclude reference="12C-3P-6cb"/>
+                                <exclude reference="hvl-eP-GeQ"/>
+                                <exclude reference="iFa-bq-0ef"/>
+                                <exclude reference="tjK-jM-UzI"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -606,14 +599,14 @@
                                 <include reference="7si-RK-k91"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="12C-3P-6cb"/>
-                                <include reference="hvl-eP-GeQ"/>
-                                <include reference="iFa-bq-0ef"/>
-                                <include reference="tjK-jM-UzI"/>
                                 <include reference="Jky-XW-ced"/>
                                 <include reference="Qpf-St-wPa"/>
                                 <include reference="HTf-H7-wyr"/>
                                 <include reference="qyG-NE-PBX"/>
+                                <include reference="12C-3P-6cb"/>
+                                <include reference="hvl-eP-GeQ"/>
+                                <include reference="iFa-bq-0ef"/>
+                                <include reference="tjK-jM-UzI"/>
                             </mask>
                         </variation>
                     </view>
@@ -629,11 +622,31 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="3OH-AX-POC" id="o9t-yY-gjn"/>
+                        <segue destination="ePX-bZ-qgU" kind="presentation" identifier="showpost" modalTransitionStyle="crossDissolve" id="Rxu-MV-UqK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YgK-Gt-VKn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2925" y="355.5"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="lVj-mh-nuU">
+            <objects>
+                <viewController id="ev8-3I-pRm" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="XIY-LQ-DfZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="iXz-bQ-j0x"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hdB-QE-WVc">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="E7j-CI-Rbj"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kog-1I-pMN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4929" y="159"/>
         </scene>
         <!--Chat-->
         <scene sceneID="IKF-ca-2xD">
@@ -644,6 +657,7 @@
                         <viewControllerLayoutGuide type="bottom" id="oyn-uS-9AO"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="czC-Pa-k51">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -681,6 +695,7 @@
                         <viewControllerLayoutGuide type="bottom" id="tAn-bA-2gF"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="RKw-ws-XYX">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -746,7 +761,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Gr-Za-V2N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3747" y="355.5"/>
+            <point key="canvasLocation" x="3831" y="840"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="9SO-uZ-HfB">
@@ -785,6 +800,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gmF-lh-3aR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2133" y="1083"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="bIG-dF-b3E">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ePX-bZ-qgU" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="uT8-4h-5LK">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ev8-3I-pRm" kind="relationship" relationship="rootViewController" id="R2M-h7-g8z"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0XY-eR-0tz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4011" y="159"/>
         </scene>
     </scenes>
     <resources>

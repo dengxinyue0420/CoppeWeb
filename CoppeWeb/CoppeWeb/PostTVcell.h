@@ -17,7 +17,7 @@ alpha:1.0]
 
 
 typedef enum {
-    ALL_HEIGHT = 87,
+    ALL_HEIGHT = 101,
     Layer_Horizontal_Offset = 20,
     Layer_Space_Offset = 5,
     Image_Frame = 40,
@@ -28,12 +28,13 @@ typedef enum {
     Title_Name_For_Center_Offset = 3,
     Title_Max_Frame = 180,
     Time_Frame_Offset = 5,
-    Date_Frame_Offset = 5,
+    Date_Frame_Offset = 10,
     Date_Title_Offset = 25,
     Content_Name_Offset = 5,
     Content_Image_Offset = 10,
     Content_Buttom_Offset = 15, // actually Image_Button_Offset.
     ButtomImages_Frame = 100,
+    ButtomImages_More_Offset = 3,
     Line_Buttom_Offset = 3,
     Interest_Max_Frame = 30,
     LikeNum_Max_Frame = 50,
@@ -64,10 +65,11 @@ typedef enum {
 @property (nonatomic,strong)UIImageView *image1;
 @property (nonatomic,strong)UIImageView *image2;
 @property (nonatomic,strong)UIImageView *image3;
+@property (nonatomic,strong)UILabel *moreimagelabel;
 
-- (void)initwithColor:(UIColor *)color Image:(UIImage *)image Title:(NSString *)title Name:(NSString *)name Date:(NSString *)date Content:(NSString *)content read:(NSString *)read like:(NSString *)like comment:(NSString *)comment ButtomImages:(NSArray *)imagearrary;
+- (void)initwithColor:(UIColor *)color Image:(UIImage *)image Title:(NSString *)title Name:(NSString *)name Date:(NSString *)date Content:(NSString *)content read:(NSString *)read like:(NSString *)like comment:(NSString *)comment ButtomImages:(NSArray *)imagearrary; // configure the cell with all these information.
+
 + (CGFloat)HeightForCellWithContent:(NSString *)content andTitle:(NSString *)title;
 
-- (void)addTitle:(NSString *)Title;
 
 @end

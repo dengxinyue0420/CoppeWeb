@@ -88,7 +88,7 @@
     if(indexPath.row%3==2){
         color = colorarray[2];
     }
-    NSArray *imagearray = @[[UIImage imageNamed:@"dsa.jpg"],[UIImage imageNamed:@"dsa.jpg"],[UIImage imageNamed:@"dsa.jpg"]];
+    NSArray *imagearray = @[[UIImage imageNamed:@"dsa.jpg"],[UIImage imageNamed:@"dsa.jpg"],[UIImage imageNamed:@"dsa.jpg"],[UIImage imageNamed:@"dsa.jpg"],@"",@"",@""];
     [cell initwithColor:color
                   Image:[UIImage imageNamed:@"dsa.jpg"]
                   Title:@"I finally made it?"

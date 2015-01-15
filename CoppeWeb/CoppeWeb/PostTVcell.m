@@ -51,6 +51,8 @@ CGFloat LayerHeight;
     [self.layerbutton addSubview:self.image2];
     self.image3 = [[UIImageView alloc]init];
     [self.layerbutton addSubview:self.image3];
+    self.moreimagelabel = [[UILabel alloc]init];
+    [self.layerbutton addSubview:self.moreimagelabel];
     return self;
 }
 
@@ -135,7 +137,6 @@ CGFloat LayerHeight;
     self.datelabel.lineBreakMode = NSLineBreakByWordWrapping;
     CGRect contentsize = [self.contentlabel textRectForBounds:CGRectMake(0, 0, self.All_Screen_Width-Layer_Horizontal_Offset-Layer_Horizontal_Offset-Image_Frame_Offset-Image_Frame_Offset, CGFLOAT_MAX) limitedToNumberOfLines:9999];
     self.contentlabel.frame = CGRectMake(Image_Frame_Offset, Image_Frame_Offset+self.titlelabel.frame.size.height+Title_Name_Offset+self.namelabel.frame.size.height+Content_Name_Offset, contentsize.size.width, contentsize.size.height);
-    [self addUnderLineToButtom];
 }
 
 - (void)addImages:(NSArray *)imagearray{ // add buttom images
@@ -177,6 +178,38 @@ CGFloat LayerHeight;
         self.image3.contentMode = UIViewContentModeScaleToFill;
         self.image3.image = images3;
     }
+    if([images count]>3){
+        UIImage *images1 = images[0];
+        CGFloat offset = (self.All_Screen_Width-2*Layer_Horizontal_Offset-3*ButtomImages_Frame)/4;
+        self.image1.frame = CGRectMake(offset, self.contentlabel.frame.origin.y+Content_Image_Offset+self.contentlabel.frame.size.height, ButtomImages_Frame, ButtomImages_Frame);
+        self.image1.contentMode = UIViewContentModeScaleToFill;
+        self.image1.image = images1;
+        
+        UIImage *images2 = images[1];
+        self.image2.frame = CGRectMake(2*offset+ButtomImages_Frame, self.contentlabel.frame.origin.y+Content_Image_Offset+self.contentlabel.frame.size.height, ButtomImages_Frame, ButtomImages_Frame);
+        self.image2.contentMode = UIViewContentModeScaleToFill;
+        self.image2.image = images2;
+        
+        UIImage *images3 = images[2];
+        self.image3.frame = CGRectMake(3*offset+2*ButtomImages_Frame, self.contentlabel.frame.origin.y+Content_Image_Offset+self.contentlabel.frame.size.height, ButtomImages_Frame, ButtomImages_Frame);
+        self.image3.contentMode = UIViewContentModeScaleToFill;
+        self.image3.image = images3;
+        
+        NSInteger morenum = [images count]-3;
+        self.moreimagelabel.text = [NSString stringWithFormat:@"%ld MORE",morenum];
+        self.moreimagelabel.font = [UIFont fontWithName:Buttom_Font size:12.0f];
+        self.moreimagelabel.textColor = [UIColor blackColor];
+        self.moreimagelabel.numberOfLines = 1;
+        self.moreimagelabel.alpha = 0.4f;
+        self.moreimagelabel.textAlignment = NSTextAlignmentCenter;
+        self.moreimagelabel.lineBreakMode = NSLineBreakByWordWrapping;
+        CGRect moreimagesize = [self.moreimagelabel textRectForBounds:CGRectMake(0, 0, 100, CGFLOAT_MAX) limitedToNumberOfLines:1];
+        self.moreimagelabel.backgroundColor = UIColorFromRGB(0x898989);
+        self.moreimagelabel.layer.masksToBounds = YES;
+        self.moreimagelabel.layer.cornerRadius = 5.0f;
+        self.moreimagelabel.frame = CGRectMake(self.layerbutton.frame.size.width/2-moreimagesize.size.width/2-3, self.image1.frame.origin.y+ButtomImages_Frame+ButtomImages_More_Offset, moreimagesize.size.width+6, moreimagesize.size.height);
+    }
+    [self addUnderLineToButtom];
 }
 
 - (void)addinterestlabel{ // add like label
@@ -186,7 +219,7 @@ CGFloat LayerHeight;
     self.interestlabel.text = [NSString stringWithFormat:@"Like"];
     self.interestlabel.lineBreakMode = NSLineBreakByWordWrapping;
     CGRect interestsize = [self.interestlabel textRectForBounds:CGRectMake(0, 0, Interest_Max_Frame, CGFLOAT_MAX) limitedToNumberOfLines:1];
-    self.interestlabel.frame = CGRectMake(self.layerbutton.frame.size.width/2-interestsize.size.width/2, Image_Frame_Offset+self.titlelabel.frame.size.height+Title_Name_Offset+self.namelabel.frame.size.height+Content_Name_Offset+self.contentlabel.frame.size.height+Content_Buttom_Offset+Line_Buttom_Offset+Content_Image_Offset+ButtomImages_Frame, interestsize.size.width, interestsize.size.height);
+    self.interestlabel.frame = CGRectMake(self.layerbutton.frame.size.width/2-interestsize.size.width/2, Image_Frame_Offset+self.titlelabel.frame.size.height+Title_Name_Offset+self.namelabel.frame.size.height+Content_Name_Offset+self.contentlabel.frame.size.height+Content_Buttom_Offset+Line_Buttom_Offset+Content_Image_Offset+ButtomImages_Frame+self.moreimagelabel.frame.size.height+ButtomImages_More_Offset, interestsize.size.width, interestsize.size.height);
 }
 
 - (void)addlikeNum:(NSString *)num{ // add like num
@@ -196,7 +229,7 @@ CGFloat LayerHeight;
     self.likenum.text = num;
     self.likenum.lineBreakMode = NSLineBreakByWordWrapping;
     CGRect likenumsize = [self.likenum textRectForBounds:CGRectMake(0, 0, LikeNum_Max_Frame, CGFLOAT_MAX) limitedToNumberOfLines:1];
-    self.likenum.frame = CGRectMake(self.interestlabel.frame.origin.x-Num_Element_Offset-likenumsize.size.width, Image_Frame_Offset+self.titlelabel.frame.size.height+Title_Name_Offset+self.namelabel.frame.size.height+Content_Name_Offset+self.contentlabel.frame.size.height+Content_Buttom_Offset+Line_Buttom_Offset+Content_Image_Offset+ButtomImages_Frame, likenumsize.size.width, likenumsize.size.height);
+    self.likenum.frame = CGRectMake(self.interestlabel.frame.origin.x-Num_Element_Offset-likenumsize.size.width, Image_Frame_Offset+self.titlelabel.frame.size.height+Title_Name_Offset+self.namelabel.frame.size.height+Content_Name_Offset+self.contentlabel.frame.size.height+Content_Buttom_Offset+Line_Buttom_Offset+Content_Image_Offset+ButtomImages_Frame+self.moreimagelabel.frame.size.height+ButtomImages_More_Offset, likenumsize.size.width, likenumsize.size.height);
 }
 
 - (void)addread{ // add read label
@@ -206,7 +239,7 @@ CGFloat LayerHeight;
     self.readlabel.text = [NSString stringWithFormat:@"Read"];
     self.readlabel.lineBreakMode = NSLineBreakByWordWrapping;
     CGRect readsize = [self.readlabel textRectForBounds:CGRectMake(0, 0, Read_Max_Frame, CGFLOAT_MAX) limitedToNumberOfLines:1];
-    self.readlabel.frame = CGRectMake(self.layerbutton.frame.size.width/7, Image_Frame_Offset+self.titlelabel.frame.size.height+Title_Name_Offset+self.namelabel.frame.size.height+Content_Name_Offset+self.contentlabel.frame.size.height+Content_Buttom_Offset+Line_Buttom_Offset+Content_Image_Offset+ButtomImages_Frame, readsize.size.width, readsize.size.height);
+    self.readlabel.frame = CGRectMake(self.layerbutton.frame.size.width/7, Image_Frame_Offset+self.titlelabel.frame.size.height+Title_Name_Offset+self.namelabel.frame.size.height+Content_Name_Offset+self.contentlabel.frame.size.height+Content_Buttom_Offset+Line_Buttom_Offset+Content_Image_Offset+ButtomImages_Frame+self.moreimagelabel.frame.size.height+ButtomImages_More_Offset, readsize.size.width, readsize.size.height);
 }
 
 - (void)addReadNum:(NSString *)num{ // add read num
@@ -216,7 +249,7 @@ CGFloat LayerHeight;
     self.readnum.text = num;
     self.readnum.lineBreakMode = NSLineBreakByWordWrapping;
     CGRect readnumsize = [self.readnum textRectForBounds:CGRectMake(0, 0, LikeNum_Max_Frame, CGFLOAT_MAX) limitedToNumberOfLines:1];
-    self.readnum.frame = CGRectMake( self.readlabel.frame.origin.x-Num_Element_Offset-readnumsize.size.width, Image_Frame_Offset+self.titlelabel.frame.size.height+Title_Name_Offset+self.namelabel.frame.size.height+Content_Name_Offset+self.contentlabel.frame.size.height+Content_Buttom_Offset+Line_Buttom_Offset+Content_Image_Offset+ButtomImages_Frame, readnumsize.size.width, readnumsize.size.height);
+    self.readnum.frame = CGRectMake( self.readlabel.frame.origin.x-Num_Element_Offset-readnumsize.size.width, Image_Frame_Offset+self.titlelabel.frame.size.height+Title_Name_Offset+self.namelabel.frame.size.height+Content_Name_Offset+self.contentlabel.frame.size.height+Content_Buttom_Offset+Line_Buttom_Offset+Content_Image_Offset+ButtomImages_Frame+self.moreimagelabel.frame.size.height+ButtomImages_More_Offset, readnumsize.size.width, readnumsize.size.height);
 }
 
 - (void)addcommentlabel{ // add Comment Label
@@ -226,7 +259,7 @@ CGFloat LayerHeight;
     self.commentlabel.text = [NSString stringWithFormat:@"Comment"];
     self.commentlabel.lineBreakMode = NSLineBreakByWordWrapping;
     CGRect commentsize = [self.commentlabel textRectForBounds:CGRectMake(0, 0, Comment_Max_Frame, CGFLOAT_MAX) limitedToNumberOfLines:1];
-    self.commentlabel.frame = CGRectMake(self.layerbutton.frame.size.width-Comment_Max_Frame-Comment_Offset, Image_Frame_Offset+self.titlelabel.frame.size.height+Title_Name_Offset+self.namelabel.frame.size.height+Content_Name_Offset+self.contentlabel.frame.size.height+Content_Buttom_Offset+Line_Buttom_Offset+Content_Image_Offset+ButtomImages_Frame, commentsize.size.width, commentsize.size.height);
+    self.commentlabel.frame = CGRectMake(self.layerbutton.frame.size.width-Comment_Max_Frame-Comment_Offset, Image_Frame_Offset+self.titlelabel.frame.size.height+Title_Name_Offset+self.namelabel.frame.size.height+Content_Name_Offset+self.contentlabel.frame.size.height+Content_Buttom_Offset+Line_Buttom_Offset+Content_Image_Offset+ButtomImages_Frame+self.moreimagelabel.frame.size.height+ButtomImages_More_Offset, commentsize.size.width, commentsize.size.height);
 }
 
 - (void)addCommentNum:(NSString *)num{ // add Comment Num
@@ -236,7 +269,7 @@ CGFloat LayerHeight;
     self.CommentNum.text = num;
     self.CommentNum.lineBreakMode = NSLineBreakByWordWrapping;
     CGRect commentnumsize = [self.CommentNum textRectForBounds:CGRectMake(0, 0, LikeNum_Max_Frame, CGFLOAT_MAX) limitedToNumberOfLines:1];
-    self.CommentNum.frame = CGRectMake( self.commentlabel.frame.origin.x-Num_Element_Offset-commentnumsize.size.width, Image_Frame_Offset+self.titlelabel.frame.size.height+Title_Name_Offset+self.namelabel.frame.size.height+Content_Name_Offset+self.contentlabel.frame.size.height+Content_Buttom_Offset+Line_Buttom_Offset+Content_Image_Offset+ButtomImages_Frame, commentnumsize.size.width, commentnumsize.size.height);
+    self.CommentNum.frame = CGRectMake( self.commentlabel.frame.origin.x-Num_Element_Offset-commentnumsize.size.width, Image_Frame_Offset+self.titlelabel.frame.size.height+Title_Name_Offset+self.namelabel.frame.size.height+Content_Name_Offset+self.contentlabel.frame.size.height+Content_Buttom_Offset+Line_Buttom_Offset+Content_Image_Offset+ButtomImages_Frame+self.moreimagelabel.frame.size.height+ButtomImages_More_Offset, commentnumsize.size.width, commentnumsize.size.height);
 }
 
 
@@ -245,8 +278,8 @@ CGFloat LayerHeight;
 - (void)layerButtonTapped:(UIButton *)buttontapped{ // layer tapped action
     POPSpringAnimation *sprintAnimation = [POPSpringAnimation animationWithPropertyNamed:kPOPViewScaleXY];
     sprintAnimation.toValue = [NSValue valueWithCGPoint:CGPointMake(1.001,1.001)];
-    sprintAnimation.velocity = [NSValue valueWithCGPoint:CGPointMake(2, 2)];
-    sprintAnimation.springBounciness = 15.f;
+    sprintAnimation.velocity = [NSValue valueWithCGPoint:CGPointMake(3, 3)];
+    sprintAnimation.springBounciness = 10.f;
     [sprintAnimation setCompletionBlock:^(POPAnimation *anim, BOOL finished){
         POPSpringAnimation *animat = [POPSpringAnimation animationWithPropertyNamed:kPOPViewScaleXY];
         animat.toValue = [NSValue valueWithCGPoint:CGPointMake(1/1.001, 1/1.001)];
@@ -277,7 +310,7 @@ CGFloat LayerHeight;
 }
 
 - (void)addUnderLineToButtom{ // add line to buttom
-    UIView *underline = [[UIView alloc]initWithFrame:CGRectMake(0, Image_Frame_Offset+self.titlelabel.frame.size.height+Content_Image_Offset+ButtomImages_Frame+Title_Name_Offset+self.namelabel.frame.size.height+Content_Name_Offset+self.contentlabel.frame.size.height+Content_Buttom_Offset-1, self.layerbutton.frame.size.width, 1)];
+    UIView *underline = [[UIView alloc]initWithFrame:CGRectMake(0, Image_Frame_Offset+self.titlelabel.frame.size.height+Content_Image_Offset+ButtomImages_Frame+Title_Name_Offset+self.namelabel.frame.size.height+Content_Name_Offset+self.contentlabel.frame.size.height+Content_Buttom_Offset-1+self.moreimagelabel.frame.size.height+ButtomImages_More_Offset, self.layerbutton.frame.size.width, 1)];
     underline.backgroundColor = [UIColor blackColor];
     [self.layerbutton addSubview:underline];
 }
