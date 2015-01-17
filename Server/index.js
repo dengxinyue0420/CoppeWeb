@@ -31,12 +31,20 @@ server.on('connection',function(socket){
 			}
 		    };
 		    dynamodb.getItem(UserAnthCheck,function(err,data){
-			    if(err) console.log(err,err.stack);
+			    if(err){
+				console.log(err,err.stack);
+				var backjson = {
+				    "BackMsg":"SugnUpRes",
+				    "Result":"server false"
+				};
+				var backmsg = JSON.stringify(backjson);
+				socket.write(backmsg);
+			    }
 			    else{
 				if(!isEmpty(data)){ //Signup failed.
 				    var backjson = {
 					"BackMsg":"SignUpRes",
-					"Result":"false"
+					"Result":"username false"
 				    };
 				    var backmsg = JSON.stringify(backjson);
 				    console.log('Already exist');
@@ -52,7 +60,15 @@ server.on('connection',function(socket){
 					}
 				    };
 				    dynamodb.putItem(UserAnth,function(err,data){
-					    if(err) console.log(err, err.stack);
+					    if(err){
+						console.log(err, err.stack);
+						var backjson= {
+						    "BackMsg":"SugnUpRes",
+						    "Result":"server false"
+						};
+						var backmsg = JSON.stringify(backjson);
+						socket.write(backmsg);
+					    }
 					    else{
 						var backjson = {
 						    "BackMsg":"SignUpRes",
@@ -66,29 +82,7 @@ server.on('connection',function(socket){
 				}
 			    }
 			});
-/*
-		    //set up All_User_Table here.
-		    var UserInfo = {
-			'TableName':'All_User_Table',
-			'Item':{
-			    'UserName':{'S':Action['UserName']},
-			    'FirstName':{'S':Action['FirstName']},
-			    'Lastname':{'S':Action['LastName']},
-			    'DOB':{'S':Action['DOB']},
-			    'Gender':{'N':Action['Gender']},
-			    'YearOfClass':{'S':Action['Gender']},
-			    'University':{'S':Action['University']},
-			    'Major':{'S':Action['Major']}
-			}
-
-		    };
-		    dynamodb.putItem(UserInfo,function(err,data){
-			    if(err) console.log(err, err.stack);
-			    else{
-				console.log('Update Successfully.');
-			    }
-			});  */
-			}
+		}
 		//Log In Action
 		if(Action['Target Action'] == 'Log In'){
 		    var UserAnthItem = {
@@ -98,7 +92,15 @@ server.on('connection',function(socket){
 			}
 		    };
 		    dynamodb.getItem(UserAnthItem,function(err,data){
-			    if(err) console.log(err, err.stack);
+			    if(err){
+				console.log(err, err.stack);
+				var backjson= {
+				    "BackMsg":"LogInRes",
+				    "Result":"server false"
+                                };
+                                var backmsg = JSON.stringify(backjson);
+                                socket.write(backmsg);
+			    }
 			    else {
 				if(isEmpty(data)){ //Login failed
 				    var backjson = {
@@ -135,6 +137,9 @@ server.on('connection',function(socket){
 			});
 		    
 		}// end log
+		if(Action['Target Action'] == 'ForgetPwd'){ // User Forgets Password.
+		    
+		}// end ForgetPwd Action.
 		if(Action['Target Action'] == 'Pull Posts'){ //Fetch posts.
 		    if(Action['AttributeName'] == 'All'){ //fetch all
 			if(Action['SortingMethod'] == 'CreateDate'){ //date sorted in all

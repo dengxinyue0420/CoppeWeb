@@ -88,23 +88,23 @@
     if(indexPath.row%3==2){
         color = colorarray[2];
     }
-    NSArray *imagearray = @[[UIImage imageNamed:@"dsa.jpg"],[UIImage imageNamed:@"dsa.jpg"],[UIImage imageNamed:@"dsa.jpg"],[UIImage imageNamed:@"dsa.jpg"],@"",@"",@""];
+    NSArray *imagearray = @[[UIImage imageNamed:@"1.jpg"],[UIImage imageNamed:@"2.jpg"],[UIImage imageNamed:@"3.jpg"],[UIImage imageNamed:@"dsa.jpg"],@"",@"",@""];
     [cell initwithColor:color
                   Image:[UIImage imageNamed:@"dsa.jpg"]
                   Title:@"I finally made it?"
                    Name:@"YichengWang"
                    Date:@"4:30PM"
-                Content:@"Well This cell contains about 13 elements for which I calculated the precise size by making different class methods. Everyone can read and comment on it. I configured this cell with pop-animation triggered by one tap or touch. (This tests long post content.)"
-                   read:@"1000"
-                   like:@"1000"
-                comment:@"1000"
+                Content:@"Well This cell contains about 13 elements for which I calculated the precise size by making different class methods. Everyone can read and comment on it. I configured this cell with pop-animation triggered by one tap or touch. (This tests long post content.)😂😂😂😂😂😂😂😂😂😂😂😂"
+                   read:@"387"
+                   like:@"12"
+                comment:@"3"
            ButtomImages:imagearray];
     
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return [PostTVCell HeightForCellWithContent:@"Well This cell contains about 13 elements for which I calculated the precise size by making different class methods. Everyone can read and comment on it. I configured this cell with pop-animation triggered by one tap or touch. (This tests long post content.)" andTitle:@"Build a chat app"];
+    return [PostTVCell HeightForCellWithContent:@"Well This cell contains about 13 elements for which I calculated the precise size by making different class methods. Everyone can read and comment on it. I configured this cell with pop-animation triggered by one tap or touch. (This tests long post content.)😂😂😂😂😂😂😂😂😂😂😂😂" andTitle:@"Build a chat app"];
 }
 
 
@@ -157,6 +157,8 @@
     refresh.attributedTitle = [[NSAttributedString alloc] initWithString:@"Refreshing data..."];
     [self fetchNewPost];
 }
+
+
 /*
  // Override to support conditional editing of the table view.
  - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {

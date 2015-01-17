@@ -4,15 +4,7 @@ Action Headers:
 SignUpAction: { //Sign Up
     "Target Action":"Sign Up",
 	"UserName":...,
-	"NickName":...,
-	"FirstName":...,
-	"LastName":...,
-	"DateOfBirth":...,
-	"Gender":...,
-	"ProfImage":...,
-	"School":...,
-	"SelfDes":...,
-	"CreateDate":...
+	"PassWord":....
 	}
 
 LogInAction: {  //LogIn
