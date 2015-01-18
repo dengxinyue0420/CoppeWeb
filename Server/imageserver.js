@@ -14,6 +14,8 @@ var net = require('net');
 var server = net.createServer();
 var socketbuf = new Buffer(0);
 
+
+//handlers. 
 server.on('connection',function(socket){
 	console.log('get connection.');
 	socket.on('data',function(data){
@@ -51,6 +53,7 @@ server.on('connection',function(socket){
 				    console.log('upload successful.');
 				}
 			    });
+			socketbuf = new Buffer(0);
 		    }
 
 		}
