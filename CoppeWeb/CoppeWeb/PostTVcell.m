@@ -101,12 +101,12 @@ CGFloat LayerHeight;
 }
 
 - (void)addTitle:(NSString *)Title{ // add a title to the post
-    self.titlelabel.font = [UIFont fontWithName:Title_Font size:20.0f];
+    self.titlelabel.font = [UIFont fontWithName:Title_Font size:18.0f];
     self.titlelabel.numberOfLines = 0;
     self.titlelabel.text = Title;
     self.titlelabel.lineBreakMode = NSLineBreakByWordWrapping;
     CGRect labelsize = [self.titlelabel textRectForBounds:CGRectMake(0, 0, Title_Max_Frame, CGFLOAT_MAX) limitedToNumberOfLines:2];
-    self.titlelabel.frame = CGRectMake(Image_Frame_Offset+Image_Frame+Image_Title_Offset, Image_Frame_Offset-Title_Name_For_Center_Offset, labelsize.size.width, labelsize.size.height);
+    self.titlelabel.frame = CGRectMake(Image_Frame_Offset+Image_Frame+Image_Title_Offset, Image_Frame_Offset+Title_Top_Offset-Title_Name_For_Center_Offset, labelsize.size.width, labelsize.size.height);
 }
 
 - (void)addName:(NSString *)Name{ // add a name to the post.
@@ -116,7 +116,7 @@ CGFloat LayerHeight;
     self.namelabel.textColor = UIColorFromRGB(0x898989);
     self.namelabel.lineBreakMode = NSLineBreakByWordWrapping;
     CGRect namesize = [self.namelabel textRectForBounds:CGRectMake(0, 0, (self.All_Screen_Width-Layer_Horizontal_Offset-Image_Frame-Image_Title_Offset-Image_Frame_Offset-Layer_Horizontal_Offset)/2, CGFLOAT_MAX) limitedToNumberOfLines:1];
-    self.namelabel.frame = CGRectMake(Image_Frame_Offset+Image_Frame+Image_Name_Offeset, Image_Frame_Offset+Title_Name_Offset+self.titlelabel.frame.size.height+Title_Name_Offset-Title_Name_For_Center_Offset, namesize.size.width, namesize.size.height);
+    self.namelabel.frame = CGRectMake(Image_Frame_Offset+Image_Frame+Image_Name_Offeset, Image_Frame_Offset+Title_Name_Offset+self.titlelabel.frame.size.height+Title_Top_Offset+Title_Name_Offset-Title_Name_For_Center_Offset, namesize.size.width, namesize.size.height);
 }
 
 - (void)addDate:(NSString *)Date{  // add a date to the post
@@ -132,68 +132,69 @@ CGFloat LayerHeight;
 
 - (void)addContent:(NSString *)Content{ // add a content to the post
     self.contentlabel.font = [UIFont fontWithName:Content_Font size:14.0f];
-    self.contentlabel.numberOfLines = 0;
+    self.contentlabel.numberOfLines = 6;
     self.contentlabel.text = Content;
     self.datelabel.lineBreakMode = NSLineBreakByWordWrapping;
-    CGRect contentsize = [self.contentlabel textRectForBounds:CGRectMake(0, 0, self.All_Screen_Width-Layer_Horizontal_Offset-Layer_Horizontal_Offset-Image_Frame_Offset-Image_Frame_Offset, CGFLOAT_MAX) limitedToNumberOfLines:9999];
-    self.contentlabel.frame = CGRectMake(Image_Frame_Offset, Image_Frame_Offset+self.titlelabel.frame.size.height+Title_Name_Offset+self.namelabel.frame.size.height+Content_Name_Offset, contentsize.size.width, contentsize.size.height);
+    CGRect contentsize = [self.contentlabel textRectForBounds:CGRectMake(0, 0, self.All_Screen_Width-2*Layer_Horizontal_Offset-2*Content_Frame_Offset, CGFLOAT_MAX) limitedToNumberOfLines:9999];
+    self.contentlabel.frame = CGRectMake(Content_Frame_Offset, Image_Frame_Offset+self.titlelabel.frame.size.height+Title_Name_Offset+self.namelabel.frame.size.height+Content_Name_Offset, contentsize.size.width, contentsize.size.height);
 }
 
 - (void)addImages:(NSArray *)imagearray{ // add buttom images
     NSArray *images = [[NSArray alloc]initWithArray:imagearray];
     if([images count]==1){
         UIImage *image = images[0];
-        CGFloat offset = (self.All_Screen_Width-2*Layer_Horizontal_Offset-3*ButtomImages_Frame)/4;
-        self.image1.frame = CGRectMake(offset, self.contentlabel.frame.origin.y+Content_Image_Offset+self.contentlabel.frame.size.height, ButtomImages_Frame, ButtomImages_Frame);
+        CGFloat offset = (self.contentlabel.frame.size.width-3*ButtomImages_Frame)/2;
+        self.image1.frame = CGRectMake(self.contentlabel.frame.origin.x, self.contentlabel.frame.origin.y+Content_Image_Offset+self.contentlabel.frame.size.height, ButtomImages_Frame, ButtomImages_Frame);
         self.image1.contentMode = UIViewContentModeScaleToFill;
         self.image1.layer.cornerRadius = 10.0f;
         self.image1.image = image;
     }
     if([images count]==2){
         UIImage *images1 = images[0];
-        CGFloat offset = (self.All_Screen_Width-2*Layer_Horizontal_Offset-3*ButtomImages_Frame)/4;
-        self.image1.frame = CGRectMake(offset, self.contentlabel.frame.origin.y+Content_Image_Offset+self.contentlabel.frame.size.height, ButtomImages_Frame, ButtomImages_Frame);
+        CGFloat offset = (self.contentlabel.frame.size.width-3*ButtomImages_Frame)/2;
+        self.image1.frame = CGRectMake(self.contentlabel.frame.origin.x, self.contentlabel.frame.origin.y+Content_Image_Offset+self.contentlabel.frame.size.height, ButtomImages_Frame, ButtomImages_Frame);
         self.image1.contentMode = UIViewContentModeScaleToFill;
         self.image1.image = images1;
         
         UIImage *images2 = images[1];
-        self.image2.frame = CGRectMake(2*offset+ButtomImages_Frame, self.contentlabel.frame.origin.y+Content_Image_Offset+self.contentlabel.frame.size.height, ButtomImages_Frame, ButtomImages_Frame);
+        self.image2.frame = CGRectMake(self.contentlabel.frame.origin.x+ButtomImages_Frame+offset, self.contentlabel.frame.origin.y+Content_Image_Offset+self.contentlabel.frame.size.height, ButtomImages_Frame, ButtomImages_Frame);
         self.image2.contentMode = UIViewContentModeScaleToFill;
         self.image2.image = images2;
     }
     if([images count]==3){
         UIImage *images1 = images[0];
-        CGFloat offset = (self.All_Screen_Width-2*Layer_Horizontal_Offset-3*ButtomImages_Frame)/4;
-        self.image1.frame = CGRectMake(offset, self.contentlabel.frame.origin.y+Content_Image_Offset+self.contentlabel.frame.size.height, ButtomImages_Frame, ButtomImages_Frame);
+        CGFloat offset = (self.contentlabel.frame.size.width-3*ButtomImages_Frame)/2;
+        self.image1.frame = CGRectMake(self.contentlabel.frame.origin.x, self.contentlabel.frame.origin.y+Content_Image_Offset+self.contentlabel.frame.size.height, ButtomImages_Frame, ButtomImages_Frame);
         self.image1.contentMode = UIViewContentModeScaleToFill;
         self.image1.image = images1;
         
         UIImage *images2 = images[1];
-        self.image2.frame = CGRectMake(2*offset+ButtomImages_Frame, self.contentlabel.frame.origin.y+Content_Image_Offset+self.contentlabel.frame.size.height, ButtomImages_Frame, ButtomImages_Frame);
+        self.image2.frame = CGRectMake(self.contentlabel.frame.origin.x+ButtomImages_Frame+offset, self.contentlabel.frame.origin.y+Content_Image_Offset+self.contentlabel.frame.size.height, ButtomImages_Frame, ButtomImages_Frame);
         self.image2.contentMode = UIViewContentModeScaleToFill;
         self.image2.image = images2;
         
         UIImage *images3 = images[2];
-        self.image3.frame = CGRectMake(3*offset+2*ButtomImages_Frame, self.contentlabel.frame.origin.y+Content_Image_Offset+self.contentlabel.frame.size.height, ButtomImages_Frame, ButtomImages_Frame);
+        self.image3.frame = CGRectMake(2*offset+2*ButtomImages_Frame+self.contentlabel.frame.origin.x, self.contentlabel.frame.origin.y+Content_Image_Offset+self.contentlabel.frame.size.height, ButtomImages_Frame, ButtomImages_Frame);
         self.image3.contentMode = UIViewContentModeScaleToFill;
         self.image3.image = images3;
     }
     if([images count]>3){
         UIImage *images1 = images[0];
-        CGFloat offset = (self.All_Screen_Width-2*Layer_Horizontal_Offset-3*ButtomImages_Frame)/4;
-        self.image1.frame = CGRectMake(offset, self.contentlabel.frame.origin.y+Content_Image_Offset+self.contentlabel.frame.size.height, ButtomImages_Frame, ButtomImages_Frame);
+        CGFloat offset = (self.contentlabel.frame.size.width-3*ButtomImages_Frame)/2;
+        self.image1.frame = CGRectMake(self.contentlabel.frame.origin.x, self.contentlabel.frame.origin.y+Content_Image_Offset+self.contentlabel.frame.size.height, ButtomImages_Frame, ButtomImages_Frame);
         self.image1.contentMode = UIViewContentModeScaleToFill;
         self.image1.image = images1;
         
         UIImage *images2 = images[1];
-        self.image2.frame = CGRectMake(2*offset+ButtomImages_Frame, self.contentlabel.frame.origin.y+Content_Image_Offset+self.contentlabel.frame.size.height, ButtomImages_Frame, ButtomImages_Frame);
+        self.image2.frame = CGRectMake(self.contentlabel.frame.origin.x+ButtomImages_Frame+offset, self.contentlabel.frame.origin.y+Content_Image_Offset+self.contentlabel.frame.size.height, ButtomImages_Frame, ButtomImages_Frame);
         self.image2.contentMode = UIViewContentModeScaleToFill;
         self.image2.image = images2;
         
         UIImage *images3 = images[2];
-        self.image3.frame = CGRectMake(3*offset+2*ButtomImages_Frame, self.contentlabel.frame.origin.y+Content_Image_Offset+self.contentlabel.frame.size.height, ButtomImages_Frame, ButtomImages_Frame);
+        self.image3.frame = CGRectMake(2*offset+2*ButtomImages_Frame+self.contentlabel.frame.origin.x, self.contentlabel.frame.origin.y+Content_Image_Offset+self.contentlabel.frame.size.height, ButtomImages_Frame, ButtomImages_Frame);
         self.image3.contentMode = UIViewContentModeScaleToFill;
         self.image3.image = images3;
+
         
         NSInteger morenum = [images count]-3;
         self.moreimagelabel.text = [NSString stringWithFormat:@"%ld MORE",morenum];
@@ -304,13 +305,13 @@ CGFloat LayerHeight;
 #pragma mark - Other tools.
 
 - (void)addUnderLineToNameLabel{ // add line to name label
-    UIView *underline = [[UIView alloc]initWithFrame:CGRectMake(0, self.titlelabel.frame.size.height-1, self.titlelabel.frame.size.width, 1)];
+    UIView *underline = [[UIView alloc]initWithFrame:CGRectMake(0, self.titlelabel.frame.size.height+1, self.titlelabel.frame.size.width, 1)];
     underline.backgroundColor = [UIColor blackColor];
     [self.titlelabel addSubview:underline];
 }
 
 - (void)addUnderLineToButtom{ // add line to buttom
-    UIView *underline = [[UIView alloc]initWithFrame:CGRectMake(0, Image_Frame_Offset+self.titlelabel.frame.size.height+Content_Image_Offset+ButtomImages_Frame+Title_Name_Offset+self.namelabel.frame.size.height+Content_Name_Offset+self.contentlabel.frame.size.height+Content_Buttom_Offset-1+self.moreimagelabel.frame.size.height+ButtomImages_More_Offset, self.layerbutton.frame.size.width, 1)];
+    UIView *underline = [[UIView alloc]initWithFrame:CGRectMake(0, Image_Frame_Offset+self.titlelabel.frame.size.height+Content_Image_Offset+ButtomImages_Frame+Title_Name_Offset+self.namelabel.frame.size.height+Content_Name_Offset+self.contentlabel.frame.size.height+Content_Buttom_Offset-6+self.moreimagelabel.frame.size.height+ButtomImages_More_Offset, self.layerbutton.frame.size.width, 0.25)];
     underline.backgroundColor = [UIColor blackColor];
     [self.layerbutton addSubview:underline];
 }
@@ -321,7 +322,7 @@ CGFloat LayerHeight;
     test1.text = content;
     test1.numberOfLines = 0;
     test1.lineBreakMode = NSLineBreakByWordWrapping;
-    CGRect test1size = [test1 textRectForBounds:CGRectMake(0, 0, [[UIScreen mainScreen]bounds].size.width-Layer_Horizontal_Offset-Layer_Horizontal_Offset-Image_Frame_Offset-Image_Frame_Offset, CGFLOAT_MAX) limitedToNumberOfLines:9999];
+    CGRect test1size = [test1 textRectForBounds:CGRectMake(0, 0, [[UIScreen mainScreen]bounds].size.width-2*Layer_Horizontal_Offset-2*Content_Frame_Offset, CGFLOAT_MAX) limitedToNumberOfLines:9];
     UILabel *test2 = [[UILabel alloc]init];
     test2.font = [UIFont fontWithName:@"HelveticaNeue-CondensedBold" size:20.0f];
     test2.text = title;
