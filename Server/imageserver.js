@@ -10,6 +10,7 @@
 var AWS = require('aws-sdk');
 AWS.config.update({region:'us-east-1'});
 var s3 = new AWS.S3();
+var dynamodb = new AWS.DynamoDB();
 var net = require('net');
 var server = net.createServer();
 
@@ -45,6 +46,43 @@ server.on('connection',function(socket){
 		    }
 		}
 		var Action = jsonstring; // successfually got the json Action;
+		if(Action['Target Action'] == 'AddImage'){ // add image action.
+		    if(Action['ImageInfo']['usage'] == 'profile'){ // add profile images.
+			if(Action['ImageInfo']['size'] == 'large'){ // add large profile image.
+			    var ID = idgen();
+			    var dbjson = {
+				'TableName':'Limage',
+				'Item':{
+				    'ID':{'N':ID},
+				    'usage':{'S':'profile'},
+				    'SecID':{'S':Action['ImageInfo']['ID']},
+				    'URL':{'S':util.format('ProfileImage_Large/%d',ID)}
+				}
+			    };
+			    dynamodb.putItem(dbjson,function(err,err.stack){
+				    if(err){
+					console.log(err.stack);
+				    }
+				    else 
+				    {
+					console.log('upload successfully.');
+				    }
+				});
+			} // end add large profile.
+			if(Action['ImageInfo']['size'] == 'small'){ // add small profile image
+
+			} // end add small profile.
+		    } // end add profile image
+		    if(Action['ImageInfo']['usage'] == 'post'){ // add post images.
+			if(Action['ImageInfo']['size'] == 'large'){ // add large post images.
+
+			} // end add large post images
+			if(Action['ImageInfo']['size'] == 'small'){ // add small post images.
+
+			} // end add small post images
+		    }// end add post images
+
+		} // end add image action.
 	    });
 
     });
@@ -52,3 +90,16 @@ server.on('connection',function(socket){
 
 server.listen(8125);
 console.log('server running');
+
+//Other Functions                                                                                                                           
+
+    function isEmpty(obj) { //Check if Object is empty.                                                                                         
+	return !Object.keys(obj).length;
+    }
+
+    function idgen (){ //Generate Unique IDs.                                                                                                   
+	var FlakeIdGen = require('flake-idgen')
+	    , intformat = require('biguint-format')
+	    , generator = new FlakeIdGen;
+	return intformat( generator.next(),'dec');
+    }

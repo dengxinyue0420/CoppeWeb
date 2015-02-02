@@ -82,10 +82,24 @@ NSOutputStream *outputstream;
 }
 
 - (void)sendmsg{
-    UIImage *image = [UIImage imageNamed:@"dsa.png"];
-    NSData *data = UIImagePNGRepresentation(image);
-    NSLog(@"%lu",[data length]);
-    [outputstream write:[data bytes] maxLength:[data length]];
+    for (int n = 0; n<1; n++){
+        UIImage *image = [UIImage imageNamed:@"dsa.png"];
+        NSData *imagedata = UIImagePNGRepresentation(image);
+        NSString *string = [NSString stringWithFormat:@"{\"heyhey\":\"%@\"};",imagedata];
+        NSData *data = [string dataUsingEncoding:NSUTF8StringEncoding];
+        NSUInteger length = [data length];
+        NSLog(@"%lu",[data length]);
+        NSUInteger chunkSize = 1024;
+        NSUInteger offset = 0;
+        do {
+            NSUInteger thisChunkSize = length - offset > chunkSize ? chunkSize : length - offset;
+            NSData* chunk = [NSData dataWithBytesNoCopy:(char *)[data bytes] + offset
+                                                 length:thisChunkSize
+                                           freeWhenDone:NO];
+            offset += thisChunkSize;
+            [outputstream write:[chunk bytes] maxLength:[chunk length]];
+        } while (offset < length);
+    }
 }
 
 - (void)buttontapped{
