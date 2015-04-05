@@ -1,6 +1,15 @@
 {
-    "dependencies": {
-        "aws-sdk": ">= 2.0.9",
-        "node-uuid": ">= 1.4.1"
-    }
+  "dependencies": {
+    "aws-sdk": ">= 2.0.9",
+    "node-uuid": ">= 1.4.1"
+  },
+  "name": "Server",
+  "description": "A simple Node.js application illustrating usage of the AWS SDK for Node.js.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
 }

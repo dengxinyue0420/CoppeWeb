@@ -1,4 +1,4 @@
-x//CoppeWeb Main Server
+//CoppeWeb Main Server
 //Created by Yicheng Wang on Whatever Date (Maybe 12/19/2014?)
 //Copyright (c) 2014 Yicheng Wang. All rights reserved.
 // =========================================================
@@ -23,7 +23,6 @@ server.on('connection',function(socket){
 	var string = '';
 	var g_index = 0;
 	socket.on('data',function(data){
-		console.log(data.length);
 		chunk += data.toString();  // handle the JSON object here.
                 d_index = chunk.indexOf(';');
                 g_index = d_index;
@@ -140,7 +139,7 @@ server.on('connection',function(socket){
 					    "BackMsg":"LogInRes",
 					    "Result":"true"
 					};
-					var backmsg = JSON.stringify(backjson)
+					var backmsg = JSON.stringify(backjson);
 					console.log('true');
 					socket.write(backmsg);
 				    }
