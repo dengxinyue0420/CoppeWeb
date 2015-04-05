@@ -44,7 +44,7 @@
     NSLog(@"sign in");
     NSString *email = self.emailField.text;
     NSString *pwd = self.pwdField.text;
-    NSString *msg = [NSString stringWithFormat:@"{\"Target Action\":\"Log In\",\"UserName\":\"%@\",\"PassWord\":\"%@\"}",email,pwd];
+    NSString *msg = [NSString stringWithFormat:@"{\"Target Action\":\"Log In\",\"UserName\":\"%@\",\"PassWord\":\"%@\"};",email,pwd];
     NSData *data = [[NSData alloc]initWithData:[msg dataUsingEncoding:NSASCIIStringEncoding]];
     [outputstream write:[data bytes] maxLength:[data length]];
 }
